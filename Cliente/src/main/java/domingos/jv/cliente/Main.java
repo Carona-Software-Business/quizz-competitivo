@@ -1,8 +1,9 @@
 package domingos.jv.cliente;
 
-public class Cliente {
-
+public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        
+        
     }
 }

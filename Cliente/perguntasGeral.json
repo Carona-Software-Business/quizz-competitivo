@@ -1,0 +1,254 @@
+[
+  {
+    "nivel": "fácil",
+    "tema": "geografia",
+    "pergunta": "Qual é o maior país da América do Sul?",
+    "alternativas": ["Argentina", "Chile", "Peru", "Brasil"],
+    "correta": 3
+  },
+  {
+    "nivel": "fácil",
+    "tema": "geografia",
+    "pergunta": "Qual o nome do movimento das placas tectônicas que causa terremotos?",
+    "alternativas": ["Vulcanismo", "Erosão", "Abalo sísmico", "Deslizamento"],
+    "correta": 2
+  },
+  {
+    "nivel": "fácil",
+    "tema": "geografia",
+    "pergunta": "A linha do Equador divide a Terra em:",
+    "alternativas": ["Hemisfério Leste e Oeste", "Hemisfério Norte e Sul", "Hemisfério Norte e Leste", "Hemisfério Oeste e Sul"],
+    "correta": 1
+  },
+  {
+    "nivel": "médio",
+    "tema": "geografia",
+    "pergunta": "Qual fenômeno climático está relacionado ao aquecimento das águas do Pacífico?",
+    "alternativas": ["La Niña", "El Niño", "Monção", "Furacão"],
+    "correta": 1
+  },
+  {
+    "nivel": "médio",
+    "tema": "geografia",
+    "pergunta": "O que é a desertificação?",
+    "alternativas": ["Degradação do solo em áreas secas", "Crescimento das florestas", "Formação de desertos novos", "Processo de irrigação"],
+    "correta": 0
+  },
+  {
+    "nivel": "médio",
+    "tema": "geografia",
+    "pergunta": "O que caracteriza um clima tropical?",
+    "alternativas": ["Frio o ano todo", "Verões quentes e invernos frios", "Calor e chuvas no verão", "Chuvas o ano todo"],
+    "correta": 2
+  },
+  {
+    "nivel": "difícil",
+    "tema": "geografia",
+    "pergunta": "O que é a inversão térmica?",
+    "alternativas": ["Aumento da temperatura na superfície", "Retenção de poluentes próximos ao solo", "Resfriamento das camadas superiores", "Mudança de direção dos ventos"],
+    "correta": 1
+  },
+  {
+    "nivel": "difícil",
+    "tema": "geografia",
+    "pergunta": "O que são hotspots de biodiversidade?",
+    "alternativas": ["Áreas urbanas densas", "Regiões ricas em espécies ameaçadas", "Locais com alta atividade vulcânica", "Zonas desertas"],
+    "correta": 3
+  },
+  {
+    "nivel": "difícil",
+    "tema": "geografia",
+    "pergunta": "O Aquífero Guarani é:",
+    "alternativas": ["Um grande reservatório de água subterrânea", "Um rio extenso", "Um deserto na América do Sul", "Uma floresta tropical"],
+    "correta": 0
+  },
+  {
+    "nivel": "fácil",
+    "tema": "história",
+    "pergunta": "Quem foi o primeiro imperador do Brasil?",
+    "alternativas": ["Dom Pedro I", "Dom Pedro II", "Getúlio Vargas", "Tiradentes"],
+    "correta": 0
+  },
+  {
+    "nivel": "fácil",
+    "tema": "história",
+    "pergunta": "A Revolução Francesa aconteceu em que século?",
+    "alternativas": ["XV", "XVIII", "XVI", "XIX"],
+    "correta": 1
+  },
+  {
+    "nivel": "fácil",
+    "tema": "história",
+    "pergunta": "Qual era o nome do tratado que dividiu as terras entre Portugal e Espanha em 1494?",
+    "alternativas": ["Tratado de Lisboa", "Tratado de Paris", "Tratado de Madri", "Tratado de Tordesilhas"],
+    "correta": 3
+  },
+  {
+    "nivel": "médio",
+    "tema": "história",
+    "pergunta": "A escravidão no Brasil foi abolida em qual ano?",
+    "alternativas": ["1822", "1888", "1891", "1904"],
+    "correta": 1
+  },
+  {
+    "nivel": "médio",
+    "tema": "história",
+    "pergunta": "Qual foi o principal motivo da Inconfidência Mineira?",
+    "alternativas": ["Fim da escravidão", "Revolta contra os altos impostos", "Independência do Brasil", "Abolição da monarquia"],
+    "correta": 1
+  },
+  {
+    "nivel": "médio",
+    "tema": "história",
+    "pergunta": "Quem liderou a Revolução Russa de 1917?",
+    "alternativas": ["Stalin", "Marx", "Lênin", "Napoleão"],
+    "correta": 2
+  },
+  {
+    "nivel": "difícil",
+    "tema": "história",
+    "pergunta": "A Guerra dos Cem Anos envolveu principalmente quais países?",
+    "alternativas": ["França e Inglaterra", "França e Espanha", "Alemanha e Inglaterra", "Itália e Alemanha"],
+    "correta": 0
+  },
+  {
+    "nivel": "difícil",
+    "tema": "história",
+    "pergunta": "Qual civilização antiga construiu Machu Picchu?",
+    "alternativas": ["Maias", "Astecas", "Incas", "Olmecas"],
+    "correta": 2
+  },
+  {
+    "nivel": "difícil",
+    "tema": "história",
+    "pergunta": "Qual foi a principal consequência da Crise de 1929?",
+    "alternativas": ["Abolição da escravidão", "Fim do colonialismo", "Grande Depressão", "Unificação alemã"],
+    "correta": 2
+  },
+  {
+    "nivel": "fácil",
+    "tema": "biologia",
+    "pergunta": "Qual órgão do corpo humano é responsável por bombear o sangue?",
+    "alternativas": ["Pulmão", "Estômago", "Coração", "Fígado"],
+    "correta": 2
+  },
+  {
+    "nivel": "fácil",
+    "tema": "biologia",
+    "pergunta": "Qual é o nome da molécula que contém o material genético?",
+    "alternativas": ["Glicose", "RNA", "Termo", "DNA"],
+    "correta": 3
+  },
+  {
+    "nivel": "fácil",
+    "tema": "biologia",
+    "pergunta": "O que os seres vivos precisam realizar para obter energia?",
+    "alternativas": ["Fotossíntese", "Respiração celular", "Digestão", "Transpiração"],
+    "correta": 1
+  },
+  {
+    "nivel": "médio",
+    "tema": "biologia",
+    "pergunta": "Qual é a principal função dos glóbulos brancos?",
+    "alternativas": ["Transportar oxigênio", "Coagular o sangue", "Combater infecções", "Formar hormônios"],
+    "correta": 2
+  },
+  {
+    "nivel": "médio",
+    "tema": "biologia",
+    "pergunta": "Os cromossomos são compostos por:",
+    "alternativas": ["DNA", "Proteínas", "RNA", "Lipídios"],
+    "correta": 0
+  },
+  {
+    "nivel": "médio",
+    "tema": "biologia",
+    "pergunta": "O que é mitose?",
+    "alternativas": ["Divisão celular que forma gametas", "Divisão celular que gera duas células iguais", "Processo de respiração", "Mutação genética"],
+    "correta": 1
+  },
+  {
+    "nivel": "difícil",
+    "tema": "biologia",
+    "pergunta": "Qual estrutura está presente nas células vegetais, mas ausente nas animais?",
+    "alternativas": ["Mitocôndria", "Ribossomo", "Parede celular", "Lisossomo"],
+    "correta": 2
+  },
+  {
+    "nivel": "difícil",
+    "tema": "biologia",
+    "pergunta": "A fotossíntese ocorre principalmente em que organela?",
+    "alternativas": ["Núcleo", "Mitocôndria", "Lisossomo", "Cloroplasto"],
+    "correta": 3
+  },
+  {
+    "nivel": "difícil",
+    "tema": "biologia",
+    "pergunta": "Os antibióticos combatem:",
+    "alternativas": ["Vírus", "Protozoários", "Bactérias", "Fungos"],
+    "correta": 2
+  },
+  {
+    "nivel": "fácil",
+    "tema": "matemática",
+    "pergunta": "Qual das alternativas é verdadeira",
+    "alternativas": ["Todo retângulo é um quadrado", "Todo quadrado é um retângulo", "Nem todo quadrado é retângulo", "Retângulo e quadrados têm a mesma definição"],
+    "correta": 1
+  },
+  {
+    "nivel": "fácil",
+    "tema": "matemática",
+    "pergunta": "Qual é a função inversa da exponencial?",
+    "alternativas": ["Exponencial", "Polinomial", "Logarítmica", "Trigonométrica"],
+    "correta": 2
+  },
+  {
+    "nivel": "fácil",
+    "tema": "matemática",
+    "pergunta": "Qual é a raiz de 144?",
+    "alternativas": ["12", "11", "7", "14"],
+    "correta": 0
+  },
+  {
+    "nivel": "médio",
+    "tema": "matemática",
+    "pergunta": "Qual é a média aritmética de 2, 4 e 10?",
+    "alternativas": ["4", "5", "6", "7"],
+    "correta": 2
+  },
+  {
+    "nivel": "médio",
+    "tema": "matemática",
+    "pergunta": "O que é um número primo?",
+    "alternativas": ["Divisível apenas por ele mesmo", "Sempre múltiplo do antecessor", "Divisível por 1 e por ele mesmo", "Sempre múltiplo do sucessor"],
+    "correta": 2
+  },
+  {
+    "nivel": "médio",
+    "tema": "matemática",
+    "pergunta": "Qual o valor de pi, aproximadamente?",
+    "alternativas": ["1,41", "2,71", "3,14", "3,33"],
+    "correta": 2
+  },
+  {
+    "nivel": "difícil",
+    "tema": "matemática",
+    "pergunta": "Qual é o nome do polígono com 8 lados?",
+    "alternativas": ["Pentágono", "Hexágono", "Heptágono", "Octógono"],
+    "correta": 3
+  },
+  {
+    "nivel": "difícil",
+    "tema": "matemática",
+    "pergunta": "Qual a soma dos ângulos internos de um triângulo?",
+    "alternativas": ["170 graus", "180 graus", "90 graus", "360 graus"],
+    "correta": 3
+  },
+  {
+    "nivel": "difícil",
+    "tema": "matemática",
+    "pergunta": "Qual é a fórmula do volume de um cilindro",
+    "alternativas": ["(raio x raio) x altura", "pi x (raio x raio) x altura", "pi x raio x altura", "pi X (raio x raio)"],
+    "correta": 1
+  }
+]
