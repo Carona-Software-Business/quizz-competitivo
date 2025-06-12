@@ -20,12 +20,12 @@ public class GameController {
         // Defini a dificuldade baseado nas quantidades de perguntas
     }
     
-    public Pergunta escolharPergunta() {
+    public Pergunta escolherPergunta() {
         // Escolher a pergunta aleatóriamente dependendo da dificuldade
         return null;
     }
     
-    public Boolean verificarResposta() {
+    public Boolean verificarResposta(int res) {
         // Verificar a resposta, define dificuldade.
         return null;
     }

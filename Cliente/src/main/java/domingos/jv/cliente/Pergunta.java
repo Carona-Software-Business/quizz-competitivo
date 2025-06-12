@@ -22,6 +22,11 @@ public class Pergunta {
     public int getCorreta() {
         return correta;
     }
+
+    @Override
+    public String toString() {
+        return pergunta + "\n" + "alternativas: " + alternativas + '\n';
+    }
     
     
 }
