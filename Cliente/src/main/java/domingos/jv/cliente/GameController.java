@@ -44,15 +44,15 @@ public class GameController {
     public Pergunta escolherPergunta() {
         // Escolher a pergunta aleatóriamente dependendo da dificuldade
         int pos = new Random().nextInt(perguntasAtual.size());
-        System.out.println("Num: " + pos);
+        //System.out.println("Num: " + pos);
         
-        System.out.println("Tamanho: " + perguntasAtual.size());
+        //System.out.println("Tamanho: " + perguntasAtual.size());
         
         Pergunta p = perguntasAtual.remove(pos);
         
         //System.out.println("Pergunta: " + p.getPergunta());
         
-        System.out.println("Tamanho: " + perguntasAtual.size());
+        //System.out.println("Tamanho: " + perguntasAtual.size());
         
         return p;
         
@@ -81,11 +81,11 @@ public class GameController {
         try {
             FileReader arquivoJson = new FileReader("perguntasGeral.json");
             
-            System.out.println("Json: \n" + arquivoJson);
+            //System.out.println("Json: \n" + arquivoJson);
             
             perguntas = gson.fromJson(arquivoJson, new TypeToken<List<Pergunta>>() {}.getType());
             
-            System.out.println("Lista perguntas: \n" + perguntas);
+            //System.out.println("Lista perguntas: \n" + perguntas);
             
             /*
             System.out.println("Tamanho: " + perguntas.size());

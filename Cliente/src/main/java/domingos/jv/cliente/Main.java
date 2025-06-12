@@ -8,7 +8,7 @@ public class Main {
         
         System.out.print("Digite o seu nome: ");
         
-        //GameController gameController = new GameController(leitor.next());
+        GameController gameController = new GameController(leitor.next());
         
         for(int i = 0; i < 3; i++){           
             Pergunta p = gameController.escolherPergunta();
@@ -16,11 +16,16 @@ public class Main {
             System.out.println(p);
             
             System.out.print("Digite sua resposta: ");
+            
+            leitor.nextInt();
+            
+            /*
             if(gameController.verificarResposta(leitor.nextInt())){
                 System.out.println("Voce acertou!");
             } else{
                 System.out.println("Voce errou...");
             }
+            */
         }
         System.out.println("Fim de jogo!");
     }

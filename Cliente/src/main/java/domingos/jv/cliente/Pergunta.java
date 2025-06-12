@@ -30,7 +30,13 @@ public class Pergunta {
     
     @Override
     public String toString() {
-        return pergunta + "\n" + "alternativas: " + alternativas + '\n';
+        String msg = "Pergunta: " + pergunta + "\n";
+        
+        for(int i = 0; i < 4; i++) {
+            msg += (i+1) + " - " + alternativas[i] + "\n";
+        }
+        
+        return msg;
     }
     
     
