@@ -5,7 +5,9 @@ public class Main {
         
         GameController g = new GameController("Joao");
         
+        Pergunta p = g.escolharPergunta();
         
+        System.out.println("Pergunta: " + p.getPergunta());
         
     }
 }

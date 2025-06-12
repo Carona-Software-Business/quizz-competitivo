@@ -22,6 +22,12 @@ public class Pergunta {
     public int getCorreta() {
         return correta;
     }
+
+    public String getTema() {
+        return tema;
+    }
+    
+    
     
     
 }

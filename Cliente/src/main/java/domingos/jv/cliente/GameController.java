@@ -4,11 +4,15 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.swing.JOptionPane;
+import java.util.stream.Collectors;
 
 public class GameController {
     private List<Pergunta> perguntas;
+    private List<Pergunta> perguntasAtual;
     private int quantidadePerguntas;
     private String dificuldadeAtual;
     private Jogador player;
@@ -22,6 +26,9 @@ public class GameController {
         
         // Começar o jogo
         dificuldadeAtual = "fácil";
+        
+        // Filtra as perguntas
+        filtrarPerguntas();
     }
     
     public void reiniciarJogo(String nome) {
@@ -36,7 +43,27 @@ public class GameController {
     
     public Pergunta escolharPergunta() {
         // Escolher a pergunta aleatóriamente dependendo da dificuldade
-        return null;
+        int pos = new Random().nextInt(perguntasAtual.size());
+        System.out.println("Num: " + pos);
+        
+        System.out.println("Tamanho: " + perguntasAtual.size());
+        
+        Pergunta p = perguntasAtual.remove(pos);
+        
+        //System.out.println("Pergunta: " + p.getPergunta());
+        
+        System.out.println("Tamanho: " + perguntasAtual.size());
+        
+        return p;
+        
+        
+        /*
+        System.out.println("Tamanho: " + perguntasAtual.size());
+        for (Pergunta p : perguntasAtual) {
+            System.out.println(p.getPergunta());
+            System.out.println(p.getTema());
+        }
+        */  
     }
     
     public Boolean verificarResposta() {
@@ -60,8 +87,10 @@ public class GameController {
             
             System.out.println("Lista perguntas: \n" + perguntas);
             
+            /*
             System.out.println("Tamanho: " + perguntas.size());
             System.out.println("Pergunta: " + perguntas.get(0).getPergunta());
+            */
             
         } catch(FileNotFoundException ex) {
             System.out.println("Erro ao carregar o arquivo json:\n" + ex);
@@ -71,6 +100,12 @@ public class GameController {
     
     public Jogador enviarResultado() {
         return player;
+    }
+    
+    private void filtrarPerguntas() {
+        perguntasAtual = perguntas.stream().filter(
+                pergunta -> pergunta.getNivel().equals(dificuldadeAtual))
+                .collect(Collectors.toCollection(ArrayList::new));
     }
     
     
