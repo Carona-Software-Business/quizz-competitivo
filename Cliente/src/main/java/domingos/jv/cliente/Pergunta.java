@@ -28,6 +28,10 @@ public class Pergunta {
     }
     
     
+    @Override
+    public String toString() {
+        return pergunta + "\n" + "alternativas: " + alternativas + '\n';
+    }
     
     
 }
