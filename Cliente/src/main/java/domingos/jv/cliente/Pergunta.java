@@ -124,15 +124,12 @@ public class Pergunta extends JFrame {
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (e.getSource().equals(letra_a)) {
-                   respostaRecebida = letra_a.getName();
-                } else if (e.getSource().equals(letra_b)) {
-                   respostaRecebida = letra_b.getName();
-                } else if (e.getSource().equals(letra_c)) {
-                   respostaRecebida = letra_c.getName(); 
-                } else {
-                   respostaRecebida = letra_d.getName(); 
-                }
+                
+                JButton btnClicado = (JButton) e.getSource();
+                
+                int res = Integer.parseInt(btnClicado.getName());
+                
+                System.out.println(res);
             }
         };
         
