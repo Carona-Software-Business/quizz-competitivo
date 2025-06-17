@@ -17,11 +17,21 @@ public class Main {
             
             System.out.print("Digite sua resposta: ");
             
-            if(gameController.verificarResposta(leitor.nextInt())){
+            gameController.iniciarCronometro();
+            
+            int res = leitor.nextInt();
+            
+            int tempo = gameController.pararCronometro();
+            
+            if(gameController.verificarResposta(res, tempo)){
                 System.out.println("Voce acertou!\n");
             } else{
                 System.out.println("Voce errou...\n");
             }
+            
+            System.out.println("Tempo: " + tempo);
+            //System.out.println("Continuar? digite qualquer coisa: ");
+            leitor.next();
         }
         System.out.println("Fim de jogo!");
         Jogador palyer = gameController.enviarResultado();

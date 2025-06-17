@@ -37,13 +37,14 @@ public class Jogador {
         return tempoTotal;
     }
 
-    public void setTempoTotal(int tempoTotal) {
-        this.tempoTotal = tempoTotal;
+    public void somarTempo(int tempo) {
+        this.tempoTotal += tempo;
     }
 
     @Override
     public String toString() {
-        return "Nome: " + nome + "\nAcertos: " + acertos + "\nPontuacao: " + pontuacaoTotal;
+        return "Nome: " + nome + "\nAcertos: " + acertos + "\nPontuacao: " + pontuacaoTotal +
+                "\nTempo Total: " + tempoTotal;
     }
     
     

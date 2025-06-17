@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.JOptionPane;
 import java.util.stream.Collectors;
 
@@ -14,9 +16,15 @@ public class GameController {
     private List<Pergunta> perguntas;
     private List<Pergunta> perguntasAtual;
     private Pergunta perguntaAtual;
+    
     private int quantidadePerguntas;
     private String dificuldadeAtual;
+    
     private Jogador player;
+    
+    private Timer timer;
+    private TimerTask tarefa;
+    private int tempo;
 
     // Inicia o jogo
     public GameController(String nome) {
@@ -41,10 +49,6 @@ public class GameController {
         // Reiniciar a dificuldade
     }
     
-    private void definirDificuldade() {
-        // Defini a dificuldade baseado nas quantidades de perguntas
-    }
-    
     public Pergunta escolherPergunta() {
         // Escolher a pergunta aleatóriamente dependendo da dificuldade
         int pos = new Random().nextInt(perguntasAtual.size());
@@ -56,35 +60,46 @@ public class GameController {
         return perguntaAtual;
     }
     
-    public Boolean verificarResposta(int res) {
+    public Boolean verificarResposta(int res, int tempo) {
         // RETIRAR APENAS TESTE
         res--;
+        
+        player.somarTempo(tempo);
         
         // Verificar a resposta, define dificuldade.
         if(res == perguntaAtual.getCorreta()) {
             player.somarAcerto();
-            calcularPontos();
+            calcularPontos(tempo);
             
             // Setar dificuldade, talvez, filtrar
-            configurarProxEtapa();
+            definirDificuldade();
             
             return true;
         }
         
-        configurarProxEtapa();
+        definirDificuldade();
         return false;
     }
     
-    private void calcularPontos() {
+    private void calcularPontos(int tempo) {
+        int pontosTempo;
+        
+        if(tempo <= 3)
+            pontosTempo = 10;
+        else if(tempo <= 6)
+            pontosTempo = 5;
+        else
+            pontosTempo = 0;
+        
         switch (perguntaAtual.getNivel()) {
             case "facil":
-                player.somarPontos(7);
+                player.somarPontos(7 + pontosTempo);
                 break;
             case "medio":
-                player.somarPontos(10);
+                player.somarPontos(10 + pontosTempo);
                 break;
             case "dificil":
-                player.somarPontos(12);
+                player.somarPontos(12 + pontosTempo);
                 break;
         }
     }
@@ -122,7 +137,7 @@ public class GameController {
                 .collect(Collectors.toCollection(ArrayList::new));
     }
     
-    private void configurarProxEtapa() {
+    private void definirDificuldade() {
         System.out.println("QTD P: " + quantidadePerguntas);
         
         if(quantidadePerguntas == 3) {
@@ -132,6 +147,27 @@ public class GameController {
             dificuldadeAtual = "dificil";
             filtrarPerguntas();
         }
+    }
+    
+    public void iniciarCronometro() {
+        tempo = 0;
+        
+        timer = new Timer();
+        tarefa = new TimerTask() {
+            @Override
+            public void run() {
+                tempo++;
+            }
+        };
+        
+        timer.scheduleAtFixedRate(tarefa, 3000, 1000);
+    }
+    
+    public int pararCronometro() {
+        if(timer != null)
+            timer.cancel();
+        
+        return tempo;
     }
     
 }
