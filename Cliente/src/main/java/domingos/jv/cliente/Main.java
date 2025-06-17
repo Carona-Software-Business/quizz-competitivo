@@ -8,25 +8,23 @@ public class Main {
         
         System.out.print("Digite o seu nome: ");
         
-        GameController gameController = new GameController(leitor.next());
+        GameController gameController = new GameController(leitor.nextLine());
         
-        for(int i = 0; i < 3; i++){           
+        for(int i = 0; i < 9; i++){           
             Pergunta p = gameController.escolherPergunta();
             
             System.out.println(p);
             
             System.out.print("Digite sua resposta: ");
             
-            leitor.nextInt();
-            
-            /*
             if(gameController.verificarResposta(leitor.nextInt())){
-                System.out.println("Voce acertou!");
+                System.out.println("Voce acertou!\n");
             } else{
-                System.out.println("Voce errou...");
+                System.out.println("Voce errou...\n");
             }
-            */
         }
         System.out.println("Fim de jogo!");
+        Jogador palyer = gameController.enviarResultado();
+        System.out.println(palyer);
     }
 }

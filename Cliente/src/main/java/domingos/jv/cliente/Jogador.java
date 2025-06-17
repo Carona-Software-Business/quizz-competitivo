@@ -40,4 +40,11 @@ public class Jogador {
     public void setTempoTotal(int tempoTotal) {
         this.tempoTotal = tempoTotal;
     }
+
+    @Override
+    public String toString() {
+        return "Nome: " + nome + "\nAcertos: " + acertos + "\nPontuacao: " + pontuacaoTotal;
+    }
+    
+    
 }

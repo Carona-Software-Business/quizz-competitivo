@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 public class GameController {
     private List<Pergunta> perguntas;
     private List<Pergunta> perguntasAtual;
+    private Pergunta perguntaAtual;
     private int quantidadePerguntas;
     private String dificuldadeAtual;
     private Jogador player;
@@ -25,10 +26,13 @@ public class GameController {
         player = new Jogador(nome);
         
         // Começar o jogo
-        dificuldadeAtual = "fácil";
+        dificuldadeAtual = "facil";
         
         // Filtra as perguntas
         filtrarPerguntas();
+        
+        // Setar zero na quantidade de perguntas
+        quantidadePerguntas = 0;
     }
     
     public void reiniciarJogo(String nome) {
@@ -44,35 +48,45 @@ public class GameController {
     public Pergunta escolherPergunta() {
         // Escolher a pergunta aleatóriamente dependendo da dificuldade
         int pos = new Random().nextInt(perguntasAtual.size());
-        //System.out.println("Num: " + pos);
         
-        //System.out.println("Tamanho: " + perguntasAtual.size());
+        perguntaAtual = perguntasAtual.remove(pos);
         
-        Pergunta p = perguntasAtual.remove(pos);
+        quantidadePerguntas++;
         
-        //System.out.println("Pergunta: " + p.getPergunta());
-        
-        //System.out.println("Tamanho: " + perguntasAtual.size());
-        
-        return p;
-        
-        
-        /*
-        System.out.println("Tamanho: " + perguntasAtual.size());
-        for (Pergunta p : perguntasAtual) {
-            System.out.println(p.getPergunta());
-            System.out.println(p.getTema());
-        }
-        */  
+        return perguntaAtual;
     }
     
     public Boolean verificarResposta(int res) {
+        // RETIRAR APENAS TESTE
+        res--;
+        
         // Verificar a resposta, define dificuldade.
-        return null;
+        if(res == perguntaAtual.getCorreta()) {
+            player.somarAcerto();
+            calcularPontos();
+            
+            // Setar dificuldade, talvez, filtrar
+            configurarProxEtapa();
+            
+            return true;
+        }
+        
+        configurarProxEtapa();
+        return false;
     }
     
     private void calcularPontos() {
-        
+        switch (perguntaAtual.getNivel()) {
+            case "facil":
+                player.somarPontos(7);
+                break;
+            case "medio":
+                player.somarPontos(10);
+                break;
+            case "dificil":
+                player.somarPontos(12);
+                break;
+        }
     }
     
     private void carregarLista() {
@@ -108,5 +122,16 @@ public class GameController {
                 .collect(Collectors.toCollection(ArrayList::new));
     }
     
+    private void configurarProxEtapa() {
+        System.out.println("QTD P: " + quantidadePerguntas);
+        
+        if(quantidadePerguntas == 3) {
+            dificuldadeAtual = "medio";
+            filtrarPerguntas();
+        } else if(quantidadePerguntas == 6) {
+            dificuldadeAtual = "dificil";
+            filtrarPerguntas();
+        }
+    }
     
 }
