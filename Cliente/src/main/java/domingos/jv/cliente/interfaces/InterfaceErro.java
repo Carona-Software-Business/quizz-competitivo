@@ -15,6 +15,7 @@ public class InterfaceErro extends JFrame{
     JPanel painelFinalNorte;
     JPanel painelFinalSul;
     JButton botaoProximo;
+    JLabel perguntasRestantes;
     
     public InterfaceErro(GameController gameController, int acertos){
         
@@ -39,12 +40,13 @@ public class InterfaceErro extends JFrame{
         
         tituloFinal = new JLabel("ERROU!");
         pontuacaoFinal = new JLabel("Seus acertos: " + acertos + "/9");
-        painelFinalCentro = new JPanel(new GridLayout(2, 0));
+        painelFinalCentro = new JPanel(new GridLayout(3, 0));
         painelFinalEsquerda = new JPanel(new FlowLayout());
         painelFinalDireita = new JPanel(new GridBagLayout());
         painelFinalNorte = new JPanel(new FlowLayout());
         painelFinalSul = new JPanel(new FlowLayout());
         botaoProximo = new JButton("PRÓXIMA PERGUNTA");
+        perguntasRestantes = new JLabel("Perguntas restantes: ");
         
         botaoProximo.setPreferredSize(new Dimension(250, 100));
         botaoProximo.setBackground(Color.WHITE);
@@ -66,6 +68,8 @@ public class InterfaceErro extends JFrame{
         botaoProximo.setFont(new Font("Arial", Font.BOLD, 20));
         botaoProximo.setVerticalAlignment(SwingConstants.CENTER);
         botaoProximo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
+        perguntasRestantes.setFont(new Font("Arial", Font.BOLD, 50));
+        perguntasRestantes.setForeground(Color.WHITE);
         
         painelFinalEsquerda.setPreferredSize(new Dimension(300, 0));
         painelFinalDireita.setPreferredSize(new Dimension(300, 0));
@@ -74,6 +78,7 @@ public class InterfaceErro extends JFrame{
         
         painelFinalCentro.add(tituloFinal);
         painelFinalCentro.add(pontuacaoFinal);
+        painelFinalCentro.add(perguntasRestantes);
         painelFinalDireita.add(botaoProximo, gbc);
         
         add(painelFinalCentro, BorderLayout.CENTER);
@@ -86,10 +91,12 @@ public class InterfaceErro extends JFrame{
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(gameController.getQuantidadesPerguntas() < 9)
+                if(gameController.getQuantidadesPerguntas() < 9){
                     new InterfacePergunta(gameController, gameController.escolherPergunta());
-                else 
+                    dispose();
+                }else 
                     new InterfaceFinal();
+                    dispose();
             }
         };
         
