@@ -49,7 +49,7 @@ public class InterfaceFinal extends JFrame{
         painelFinalNorte = new JPanel(new FlowLayout());
         painelFinalSul = new JPanel(new FlowLayout());
         botaoProximo = new JButton("PRÓXIMO JOGADOR");
-        qtdAcertos = new JLabel("Quantidade de acertos: ");
+        qtdAcertos = new JLabel("Quantidade de acertos: " + gameController.getAcertos());
         
         botaoProximo.setPreferredSize(new Dimension(250, 100));
         botaoProximo.setBackground(Color.WHITE);
