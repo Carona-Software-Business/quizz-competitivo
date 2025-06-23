@@ -1,6 +1,7 @@
     package domingos.jv.cliente.interfaces;
 
 import domingos.jv.cliente.interfaces.InterfacePergunta;
+import domingos.jv.cliente.logica.GameController;
     import java.awt.*;
     import java.awt.event.ActionEvent;
     import java.awt.event.ActionListener;
@@ -75,8 +76,10 @@ import domingos.jv.cliente.interfaces.InterfacePergunta;
                 public void actionPerformed(ActionEvent e) {
                     String nome = campoNome.getText().trim();
                     if (!nome.isEmpty()) {
+                        GameController gameController = new GameController(nome);
+                        
+                        new InterfacePergunta(gameController, gameController.escolherPergunta());
                         dispose();
-                        InterfacePergunta telaPergunta = new InterfacePergunta();
                         // igor, aqui tem que colocar a instancia pra chamar a classe pergunta.
                     } else {
                         JOptionPane.showMessageDialog(WindowMain.this, "Por favor, digite seu nome.");

@@ -5,6 +5,6 @@ import domingos.jv.cliente.interfaces.WindowMain;
 public class Principal {
 
     public static void main(String[] args) {
-        WindowMain inicio = new WindowMain();
+        new WindowMain();
     }
 }

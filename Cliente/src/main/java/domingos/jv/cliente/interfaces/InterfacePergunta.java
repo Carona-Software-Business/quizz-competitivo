@@ -1,5 +1,7 @@
 package domingos.jv.cliente.interfaces;
 
+import domingos.jv.cliente.logica.GameController;
+import domingos.jv.cliente.logica.Pergunta;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +16,7 @@ public class InterfacePergunta extends JFrame {
     private JButton letra_d;
     private String respostaRecebida;
 
-    public InterfacePergunta() {
+    public InterfacePergunta(GameController gameController, Pergunta pergunta) {
         setTitle("Pergunta");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -45,8 +47,8 @@ public class InterfacePergunta extends JFrame {
         tituloPerg.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         campoPergunta = new JLabel(
-            "<html><div style='text-align: center;'>"
-        
+            "<html><div style='text-align: center;'>" +
+                    pergunta.getPergunta()
             + "</div></html>"
             );
         campoPergunta.setFont(new Font("SansSerif", Font.PLAIN, 26));
@@ -59,7 +61,7 @@ public class InterfacePergunta extends JFrame {
         campoPergunta.setPreferredSize(new Dimension(1200, 200));
         campoPergunta.setMaximumSize(new Dimension(Integer.MAX_VALUE, 200)); // corrigido altura
 
-        letra_a = new JButton("A) ");
+        letra_a = new JButton("A) " + pergunta.getAlternativas()[0]);
         letra_a.setName("0");
         letra_a.setPreferredSize(new Dimension(500, 40));
         letra_a.setMaximumSize(new Dimension(500, 40));
@@ -70,7 +72,7 @@ public class InterfacePergunta extends JFrame {
         letra_a.setFont(new Font("SansSerif", Font.BOLD, 24));
         letra_a.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        letra_b = new JButton("B) ");
+        letra_b = new JButton("B) " + pergunta.getAlternativas()[1]);
         letra_b.setName("1");
         letra_b.setPreferredSize(new Dimension(300, 30));
         letra_b.setMaximumSize(new Dimension(300, 30));
@@ -81,7 +83,7 @@ public class InterfacePergunta extends JFrame {
         letra_b.setFont(new Font("SansSerif", Font.BOLD, 24));
         letra_b.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        letra_c = new JButton("C) ");
+        letra_c = new JButton("C) " + pergunta.getAlternativas()[2]);
         letra_c.setName("2");
         letra_c.setPreferredSize(new Dimension(300, 30));
         letra_c.setMaximumSize(new Dimension(300, 30));
@@ -92,7 +94,7 @@ public class InterfacePergunta extends JFrame {
         letra_c.setFont(new Font("SansSerif", Font.BOLD, 24));
         letra_c.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        letra_d = new JButton("D) ");
+        letra_d = new JButton("D) " + pergunta.getAlternativas()[3]);
         letra_d.setName("3");
         letra_d.setPreferredSize(new Dimension(300, 30));
         letra_d.setMaximumSize(new Dimension(300, 30));
@@ -124,12 +126,19 @@ public class InterfacePergunta extends JFrame {
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int tempo = gameController.pararCronometro();
                 
                 JButton btnClicado = (JButton) e.getSource();
                 
                 int res = Integer.parseInt(btnClicado.getName());
                 
-                System.out.println(res);
+                System.out.println("Res: " + res);
+                System.out.println("Certo: " + pergunta.getCorreta());
+                
+                if(gameController.verificarResposta(res, tempo))
+                    new InterfaceAcerto();
+                else 
+                    new InterfaceErro();
             }
         };
         
@@ -139,5 +148,7 @@ public class InterfacePergunta extends JFrame {
         letra_d.addActionListener(listener);
 
         setVisible(true);
+        
+        gameController.iniciarCronometro();
     }
 }
