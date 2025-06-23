@@ -51,7 +51,7 @@ public class InterfaceFinal extends JFrame{
         painelFinalSul = new JPanel(new FlowLayout());
         botaoProximo = new JButton("PRÓXIMO JOGADOR");
         qtdAcertos = new JLabel("Quantidade de acertos: " + 
-                gameController.getAcertos() + "questões");
+                gameController.getAcertos() + " questões");
         
         botaoProximo.setPreferredSize(new Dimension(250, 100));
         botaoProximo.setBackground(Color.WHITE);
@@ -68,14 +68,14 @@ public class InterfaceFinal extends JFrame{
         
         tituloFinal.setFont(new Font("Arial", Font.BOLD, 100));
         tituloFinal.setForeground(Color.BLACK);
-        pontuacaoFinal.setFont(new Font("Arial", Font.BOLD, 50));
+        pontuacaoFinal.setFont(new Font("Arial", Font.BOLD, 35));
         pontuacaoFinal.setForeground(Color.BLACK);
         botaoProximo.setFont(new Font("Arial", Font.BOLD, 20));
         botaoProximo.setVerticalAlignment(SwingConstants.CENTER);
         botaoProximo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
-        tempoFinal.setFont(new Font("Arial", Font.BOLD, 50));
+        tempoFinal.setFont(new Font("Arial", Font.BOLD, 35));
         tempoFinal.setForeground(Color.BLACK);
-        qtdAcertos.setFont(new Font("Arial", Font.BOLD, 50));
+        qtdAcertos.setFont(new Font("Arial", Font.BOLD, 35));
         qtdAcertos.setForeground(Color.BLACK);
         
         painelFinalEsquerda.setPreferredSize(new Dimension(300, 0));
