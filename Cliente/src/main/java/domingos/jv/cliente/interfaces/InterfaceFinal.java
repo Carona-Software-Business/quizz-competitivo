@@ -91,6 +91,8 @@ public class InterfaceFinal extends JFrame{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     WindowMain windowMain = new WindowMain();
+                    dispose();
+                    setVisible(false);
                 }
             });
 
