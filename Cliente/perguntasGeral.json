@@ -242,7 +242,7 @@
     "tema": "matemática",
     "pergunta": "Qual a soma dos ângulos internos de um triângulo?",
     "alternativas": ["170 graus", "180 graus", "90 graus", "360 graus"],
-    "correta": 3
+    "correta": 1
   },
   {
     "nivel": "dificil",
