@@ -31,7 +31,7 @@ public class Main {
             
             System.out.println("Tempo: " + tempo);
             //System.out.println("Continuar? digite qualquer coisa: ");
-            leitor.next();
+            //leitor.next();
         }
         System.out.println("Fim de jogo!");
         Jogador palyer = gameController.enviarResultado();
