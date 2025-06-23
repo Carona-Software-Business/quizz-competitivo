@@ -90,8 +90,12 @@ public class InterfaceAcerto extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(gameController.getQuantidadesPerguntas() < 9){
                     new InterfacePergunta(gameController, gameController.escolherPergunta());
+                    dispose();
+                    setVisible(false);
                 }else {
                     new InterfaceFinal(gameController);
+                    dispose();
+                    setVisible(false);
             }}
         };
         

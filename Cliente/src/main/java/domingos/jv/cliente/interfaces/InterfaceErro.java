@@ -95,9 +95,11 @@ public class InterfaceErro extends JFrame{
                 if(gameController.getQuantidadesPerguntas() < 9){
                     new InterfacePergunta(gameController, gameController.escolherPergunta());
                     dispose();
+                    setVisible(false);
                 }else 
                     new InterfaceFinal(gameController);
                     dispose();
+                    setVisible(false);
             }
         };
         
