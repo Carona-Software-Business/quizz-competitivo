@@ -212,9 +212,9 @@
   {
     "nivel": "medio",
     "tema": "matemática",
-    "pergunta": "Qual é a média aritmética de 2, 4 e 10?",
+    "pergunta": "Qual é a média aritmética de 2, 4 e 9?",
     "alternativas": ["4", "5", "6", "7"],
-    "correta": 2
+    "correta": 1
   },
   {
     "nivel": "medio",
