@@ -143,9 +143,11 @@ public class InterfacePergunta extends JFrame {
                 if(gameController.verificarResposta(res, tempo)){
                     new InterfaceAcerto(gameController, gameController.getAcertos());
                     dispose();
+                    setVisible(false);
                 }else {
                     new InterfaceErro(gameController, gameController.getAcertos());
                     dispose();
+                    setVisible(false);
                 }
             }
         };

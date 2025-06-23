@@ -80,6 +80,7 @@ import domingos.jv.cliente.logica.GameController;
                         
                         new InterfacePergunta(gameController, gameController.escolherPergunta());
                         dispose();
+                        setVisible(false);
                         // igor, aqui tem que colocar a instancia pra chamar a classe pergunta.
                     } else {
                         JOptionPane.showMessageDialog(WindowMain.this, "Por favor, digite seu nome.");
