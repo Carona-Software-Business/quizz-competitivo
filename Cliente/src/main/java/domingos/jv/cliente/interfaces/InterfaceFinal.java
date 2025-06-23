@@ -15,6 +15,7 @@ public class InterfaceFinal extends JFrame{
     JPanel painelFinalSul;
     JButton botaoProximo;
     JLabel tempoFinal;
+    JLabel qtdAcertos;
     
     public InterfaceFinal(){
         
@@ -36,12 +37,13 @@ public class InterfaceFinal extends JFrame{
         tituloFinal = new JLabel("FIM DE JOGO!");
         pontuacaoFinal = new JLabel("Sua pontuação final é: ");
         tempoFinal = new JLabel("Tempo de execução: ");
-        painelFinalCentro = new JPanel(new GridLayout(3, 0));
+        painelFinalCentro = new JPanel(new GridLayout(4, 0));
         painelFinalEsquerda = new JPanel(new FlowLayout());
         painelFinalDireita = new JPanel(new GridBagLayout());
         painelFinalNorte = new JPanel(new FlowLayout());
         painelFinalSul = new JPanel(new FlowLayout());
         botaoProximo = new JButton("PRÓXIMO JOGADOR");
+        qtdAcertos = new JLabel("Quantidade de acertos: ");
         
         botaoProximo.setPreferredSize(new Dimension(250, 100));
         botaoProximo.setBackground(Color.WHITE);
@@ -65,6 +67,8 @@ public class InterfaceFinal extends JFrame{
         botaoProximo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
         tempoFinal.setFont(new Font("Arial", Font.BOLD, 50));
         tempoFinal.setForeground(Color.BLACK);
+        qtdAcertos.setFont(new Font("Arial", Font.BOLD, 50));
+        qtdAcertos.setForeground(Color.BLACK);
         
         painelFinalEsquerda.setPreferredSize(new Dimension(300, 0));
         painelFinalDireita.setPreferredSize(new Dimension(300, 0));
@@ -74,6 +78,7 @@ public class InterfaceFinal extends JFrame{
         painelFinalCentro.add(tituloFinal);
         painelFinalCentro.add(pontuacaoFinal);
         painelFinalCentro.add(tempoFinal);
+        painelFinalCentro.add(qtdAcertos);
         painelFinalDireita.add(botaoProximo, gbc);
         
         add(painelFinalCentro, BorderLayout.CENTER);
