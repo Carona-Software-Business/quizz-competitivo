@@ -42,7 +42,8 @@ public class InterfaceAcerto extends JFrame{
         painelFinalNorte = new JPanel(new FlowLayout());
         painelFinalSul = new JPanel(new FlowLayout());
         botaoProximo = new JButton("PRÓXIMA PERGUNTA");
-        perguntasRestantes = new JLabel("Perguntas restantes: ");
+        perguntasRestantes = new JLabel("Perguntas restantes: " + 
+                (9 - gameController.getQuantidadesPerguntas()));
         
         botaoProximo.setPreferredSize(new Dimension(250, 100));
         botaoProximo.setBackground(Color.WHITE);
@@ -90,7 +91,7 @@ public class InterfaceAcerto extends JFrame{
                 if(gameController.getQuantidadesPerguntas() < 9){
                     new InterfacePergunta(gameController, gameController.escolherPergunta());
                 }else {
-                    new InterfaceFinal();
+                    new InterfaceFinal(gameController);
             }}
         };
         

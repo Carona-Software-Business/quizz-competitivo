@@ -1,4 +1,6 @@
 package domingos.jv.cliente.interfaces;
+import domingos.jv.cliente.logica.GameController;
+import domingos.jv.cliente.logica.Jogador;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,7 +18,11 @@ public class InterfaceFinal extends JFrame{
     JButton botaoProximo;
     JLabel tempoFinal;
     
-    public InterfaceFinal(){
+    Jogador player;
+    
+    public InterfaceFinal(GameController gameController){
+        
+        player = gameController.enviarResultado();
         
         setLayout(new BorderLayout());
         
@@ -34,8 +40,8 @@ public class InterfaceFinal extends JFrame{
         }
         
         tituloFinal = new JLabel("FIM DE JOGO!");
-        pontuacaoFinal = new JLabel("Sua pontuação final é: ");
-        tempoFinal = new JLabel("Tempo de execução: ");
+        pontuacaoFinal = new JLabel("Sua pontuação final é: " + player.getPontuacaoTotal());
+        tempoFinal = new JLabel("Tempo total: " + player.getTempoTotal());
         painelFinalCentro = new JPanel(new GridLayout(3, 0));
         painelFinalEsquerda = new JPanel(new FlowLayout());
         painelFinalDireita = new JPanel(new GridBagLayout());
@@ -85,7 +91,7 @@ public class InterfaceFinal extends JFrame{
         botaoProximo.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    WindowMain windowMain = new WindowMain();
+                    new WindowMain();
                 }
             });
 
