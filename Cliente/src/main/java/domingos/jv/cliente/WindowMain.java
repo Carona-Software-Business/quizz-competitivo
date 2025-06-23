@@ -5,7 +5,7 @@
     import java.awt.event.ActionListener;
     import javax.swing.*;
 
-    public class Inicio extends JFrame {
+    public class WindowMain extends JFrame {
         private JLabel titulo;
         private JTextField campoNome;
         private JButton botaoIniciar;
@@ -13,7 +13,7 @@
         private JLabel serie_curso;
         private JLabel colocar_nome;
 
-        public Inicio() {
+        public WindowMain() {
 
             setTitle("Quiz Interativo");
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,10 +75,10 @@
                     String nome = campoNome.getText().trim();
                     if (!nome.isEmpty()) {
                         dispose();
-                        Pergunta telaPergunta = new Pergunta();
+                        InterfacePergunta telaPergunta = new InterfacePergunta();
                         // igor, aqui tem que colocar a instancia pra chamar a classe pergunta.
                     } else {
-                        JOptionPane.showMessageDialog(Inicio.this, "Por favor, digite seu nome.");
+                        JOptionPane.showMessageDialog(WindowMain.this, "Por favor, digite seu nome.");
                     }
                 }
             });

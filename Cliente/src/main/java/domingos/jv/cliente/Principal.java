@@ -3,6 +3,6 @@ package domingos.jv.cliente;
 public class Principal {
 
     public static void main(String[] args) {
-        Inicio inicio = new Inicio();
+        WindowMain inicio = new WindowMain();
     }
 }

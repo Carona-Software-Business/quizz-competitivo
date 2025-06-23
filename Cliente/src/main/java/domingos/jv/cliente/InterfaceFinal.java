@@ -2,7 +2,7 @@ package domingos.jv.cliente;
 import javax.swing.*;
 import java.awt.*;
 
-public class Final extends JFrame{
+public class InterfaceFinal extends JFrame{
     
     JLabel tituloFinal;
     JLabel pontuacaoFinal;
@@ -13,7 +13,7 @@ public class Final extends JFrame{
     JPanel painelFinalSul;
     JButton botaoProximo;
     
-    public Final(){
+    public InterfaceFinal(){
         
         setLayout(new BorderLayout());
         

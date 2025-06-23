@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax    .swing.*;
 
-public class Pergunta extends JFrame {
+public class InterfacePergunta extends JFrame {
     private JLabel tituloPerg;
     private JLabel campoPergunta;
     private JButton letra_a;
@@ -14,7 +14,7 @@ public class Pergunta extends JFrame {
     private JButton letra_d;
     private String respostaRecebida;
 
-    public Pergunta() {
+    public InterfacePergunta() {
         setTitle("Pergunta");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
