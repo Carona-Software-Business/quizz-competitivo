@@ -1,6 +1,8 @@
 package domingos.jv.cliente.interfaces;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class InterfaceFinal extends JFrame{
     
@@ -12,6 +14,7 @@ public class InterfaceFinal extends JFrame{
     JPanel painelFinalNorte;
     JPanel painelFinalSul;
     JButton botaoProximo;
+    JLabel tempoFinal;
     
     public InterfaceFinal(){
         
@@ -32,7 +35,8 @@ public class InterfaceFinal extends JFrame{
         
         tituloFinal = new JLabel("FIM DE JOGO!");
         pontuacaoFinal = new JLabel("Sua pontuação final é: ");
-        painelFinalCentro = new JPanel(new GridLayout(2, 0));
+        tempoFinal = new JLabel("Tempo de execução: ");
+        painelFinalCentro = new JPanel(new GridLayout(3, 0));
         painelFinalEsquerda = new JPanel(new FlowLayout());
         painelFinalDireita = new JPanel(new GridBagLayout());
         painelFinalNorte = new JPanel(new FlowLayout());
@@ -59,6 +63,8 @@ public class InterfaceFinal extends JFrame{
         botaoProximo.setFont(new Font("Arial", Font.BOLD, 20));
         botaoProximo.setVerticalAlignment(SwingConstants.CENTER);
         botaoProximo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
+        tempoFinal.setFont(new Font("Arial", Font.BOLD, 50));
+        tempoFinal.setForeground(Color.BLACK);
         
         painelFinalEsquerda.setPreferredSize(new Dimension(300, 0));
         painelFinalDireita.setPreferredSize(new Dimension(300, 0));
@@ -67,6 +73,7 @@ public class InterfaceFinal extends JFrame{
         
         painelFinalCentro.add(tituloFinal);
         painelFinalCentro.add(pontuacaoFinal);
+        painelFinalCentro.add(tempoFinal);
         painelFinalDireita.add(botaoProximo, gbc);
         
         add(painelFinalCentro, BorderLayout.CENTER);
@@ -74,6 +81,13 @@ public class InterfaceFinal extends JFrame{
         add(painelFinalDireita, BorderLayout.EAST);
         add(painelFinalSul, BorderLayout.SOUTH);
         add(painelFinalNorte, BorderLayout.NORTH);
+        
+        botaoProximo.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    WindowMain windowMain = new WindowMain();
+                }
+            });
 
 
         setVisible(true);

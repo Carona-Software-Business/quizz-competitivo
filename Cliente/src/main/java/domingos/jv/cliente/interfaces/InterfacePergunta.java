@@ -132,13 +132,13 @@ public class InterfacePergunta extends JFrame {
                 
                 int res = Integer.parseInt(btnClicado.getName());
                 
-                System.out.println("Res: " + res);
-                System.out.println("Certo: " + pergunta.getCorreta());
-                
-                if(gameController.verificarResposta(res, tempo))
+                if(gameController.verificarResposta(res, tempo)){
                     new InterfaceAcerto(gameController, gameController.getAcertos());
-                else 
+                    dispose();
+                }else {
                     new InterfaceErro(gameController, gameController.getAcertos());
+                    dispose();
+                }
             }
         };
         
