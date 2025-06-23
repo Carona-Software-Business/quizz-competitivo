@@ -61,7 +61,9 @@ public class InterfacePergunta extends JFrame {
         campoPergunta.setPreferredSize(new Dimension(1200, 200));
         campoPergunta.setMaximumSize(new Dimension(Integer.MAX_VALUE, 200)); // corrigido altura
 
-        letra_a = new JButton("A) " + pergunta.getAlternativas()[0]);
+        letra_a = new JButton("<html><div style='text-align: center;'>" +
+                              "A) " + pergunta.getAlternativas()[0] + 
+                              "</div></html>");
         letra_a.setName("0");
         letra_a.setPreferredSize(new Dimension(500, 40));
         letra_a.setMaximumSize(new Dimension(500, 40));
@@ -72,7 +74,9 @@ public class InterfacePergunta extends JFrame {
         letra_a.setFont(new Font("SansSerif", Font.BOLD, 24));
         letra_a.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        letra_b = new JButton("B) " + pergunta.getAlternativas()[1]);
+        letra_b = new JButton("<html><div style='text-align: center;'>" +
+                              "B) " + pergunta.getAlternativas()[1] + 
+                              "</div></html>");
         letra_b.setName("1");
         letra_b.setPreferredSize(new Dimension(300, 30));
         letra_b.setMaximumSize(new Dimension(300, 30));
@@ -83,7 +87,9 @@ public class InterfacePergunta extends JFrame {
         letra_b.setFont(new Font("SansSerif", Font.BOLD, 24));
         letra_b.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        letra_c = new JButton("C) " + pergunta.getAlternativas()[2]);
+        letra_c = new JButton("<html><div style='text-align: center;'>" +
+                              "C) " + pergunta.getAlternativas()[2] + 
+                              "</div></html>");
         letra_c.setName("2");
         letra_c.setPreferredSize(new Dimension(300, 30));
         letra_c.setMaximumSize(new Dimension(300, 30));
@@ -94,7 +100,9 @@ public class InterfacePergunta extends JFrame {
         letra_c.setFont(new Font("SansSerif", Font.BOLD, 24));
         letra_c.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        letra_d = new JButton("D) " + pergunta.getAlternativas()[3]);
+        letra_d = new JButton("<html><div style='text-align: center;'>" +
+                              "D) " + pergunta.getAlternativas()[3] + 
+                              "</div></html>");
         letra_d.setName("3");
         letra_d.setPreferredSize(new Dimension(300, 30));
         letra_d.setMaximumSize(new Dimension(300, 30));
