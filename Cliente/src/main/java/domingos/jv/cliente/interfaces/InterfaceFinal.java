@@ -41,15 +41,17 @@ public class InterfaceFinal extends JFrame{
         }
         
         tituloFinal = new JLabel("FIM DE JOGO!");
-        pontuacaoFinal = new JLabel("Sua pontuação final é: " + player.getPontuacaoTotal());
-        tempoFinal = new JLabel("Tempo total: " + player.getTempoTotal());
+        pontuacaoFinal = new JLabel("Sua pontuação final é: " + 
+                player.getPontuacaoTotal() + " pontos");
+        tempoFinal = new JLabel("Tempo total: " + player.getTempoTotal() + " segundos");
         painelFinalCentro = new JPanel(new GridLayout(4, 0));
         painelFinalEsquerda = new JPanel(new FlowLayout());
         painelFinalDireita = new JPanel(new GridBagLayout());
         painelFinalNorte = new JPanel(new FlowLayout());
         painelFinalSul = new JPanel(new FlowLayout());
         botaoProximo = new JButton("PRÓXIMO JOGADOR");
-        qtdAcertos = new JLabel("Quantidade de acertos: " + gameController.getAcertos());
+        qtdAcertos = new JLabel("Quantidade de acertos: " + 
+                gameController.getAcertos() + "questões");
         
         botaoProximo.setPreferredSize(new Dimension(250, 100));
         botaoProximo.setBackground(Color.WHITE);
