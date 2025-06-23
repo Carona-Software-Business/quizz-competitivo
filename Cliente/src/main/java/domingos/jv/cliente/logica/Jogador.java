@@ -1,4 +1,4 @@
-package domingos.jv.cliente;
+package domingos.jv.cliente.logica;
 
 public class Jogador {
     private String nome;

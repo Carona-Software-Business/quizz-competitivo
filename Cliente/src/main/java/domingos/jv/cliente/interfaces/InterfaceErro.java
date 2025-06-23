@@ -1,10 +1,10 @@
-package domingos.jv.cliente;
+package domingos.jv.cliente.interfaces;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InterfaceAcerto extends JFrame{
+public class InterfaceErro extends JFrame{
     
     JLabel tituloFinal;
     JLabel pontuacaoFinal;
@@ -15,13 +15,17 @@ public class InterfaceAcerto extends JFrame{
     JPanel painelFinalSul;
     JButton botaoProximo;
     
-    public InterfaceAcerto(){
+    public InterfaceErro(){
         
         setLayout(new BorderLayout());
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int largura = screenSize.width;
+        int altura = screenSize.height;
+
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice gd = ge.getDefaultScreenDevice();
 
@@ -32,7 +36,7 @@ public class InterfaceAcerto extends JFrame{
             setExtendedState(JFrame.MAXIMIZED_BOTH);
         }
         
-        tituloFinal = new JLabel("ACERTOU!");
+        tituloFinal = new JLabel("ERROU!");
         pontuacaoFinal = new JLabel("Sua pontuação atual é: ");
         painelFinalCentro = new JPanel(new GridLayout(2, 0));
         painelFinalEsquerda = new JPanel(new FlowLayout());
@@ -48,11 +52,11 @@ public class InterfaceAcerto extends JFrame{
         gbc.gridx = 3;
         gbc.gridy = 0;
         
-        painelFinalCentro.setBackground(Color.GREEN);
-        painelFinalDireita.setBackground(Color.GREEN);
-        painelFinalEsquerda.setBackground(Color.GREEN);
-        painelFinalNorte.setBackground(Color.GREEN);
-        painelFinalSul.setBackground(Color.GREEN);
+        painelFinalCentro.setBackground(Color.RED);
+        painelFinalDireita.setBackground(Color.RED);
+        painelFinalEsquerda.setBackground(Color.RED);
+        painelFinalNorte.setBackground(Color.RED);
+        painelFinalSul.setBackground(Color.RED);
         
         tituloFinal.setFont(new Font("Arial", Font.BOLD, 100));
         tituloFinal.setForeground(Color.WHITE);

@@ -1,5 +1,6 @@
-    package domingos.jv.cliente;
+    package domingos.jv.cliente.interfaces;
 
+import domingos.jv.cliente.interfaces.InterfacePergunta;
     import java.awt.*;
     import java.awt.event.ActionEvent;
     import java.awt.event.ActionListener;

@@ -1,4 +1,4 @@
-package domingos.jv.cliente;
+package domingos.jv.cliente.interfaces;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package domingos.jv.cliente;
+package domingos.jv.cliente.logica;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

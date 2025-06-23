@@ -1,10 +1,8 @@
-package domingos.jv.cliente;
+package domingos.jv.cliente.interfaces;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class InterfaceErro extends JFrame{
+public class InterfaceFinal extends JFrame{
     
     JLabel tituloFinal;
     JLabel pontuacaoFinal;
@@ -15,17 +13,13 @@ public class InterfaceErro extends JFrame{
     JPanel painelFinalSul;
     JButton botaoProximo;
     
-    public InterfaceErro(){
+    public InterfaceFinal(){
         
         setLayout(new BorderLayout());
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int largura = screenSize.width;
-        int altura = screenSize.height;
-
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice gd = ge.getDefaultScreenDevice();
 
@@ -36,14 +30,14 @@ public class InterfaceErro extends JFrame{
             setExtendedState(JFrame.MAXIMIZED_BOTH);
         }
         
-        tituloFinal = new JLabel("ERROU!");
-        pontuacaoFinal = new JLabel("Sua pontuação atual é: ");
+        tituloFinal = new JLabel("FIM DE JOGO!");
+        pontuacaoFinal = new JLabel("Sua pontuação final é: ");
         painelFinalCentro = new JPanel(new GridLayout(2, 0));
         painelFinalEsquerda = new JPanel(new FlowLayout());
         painelFinalDireita = new JPanel(new GridBagLayout());
         painelFinalNorte = new JPanel(new FlowLayout());
         painelFinalSul = new JPanel(new FlowLayout());
-        botaoProximo = new JButton("PRÓXIMA PERGUNTA");
+        botaoProximo = new JButton("PRÓXIMO JOGADOR");
         
         botaoProximo.setPreferredSize(new Dimension(250, 100));
         botaoProximo.setBackground(Color.WHITE);
@@ -52,16 +46,16 @@ public class InterfaceErro extends JFrame{
         gbc.gridx = 3;
         gbc.gridy = 0;
         
-        painelFinalCentro.setBackground(Color.RED);
-        painelFinalDireita.setBackground(Color.RED);
-        painelFinalEsquerda.setBackground(Color.RED);
-        painelFinalNorte.setBackground(Color.RED);
-        painelFinalSul.setBackground(Color.RED);
+        painelFinalCentro.setBackground(Color.YELLOW);
+        painelFinalDireita.setBackground(Color.YELLOW);
+        painelFinalEsquerda.setBackground(Color.YELLOW);
+        painelFinalNorte.setBackground(Color.YELLOW);
+        painelFinalSul.setBackground(Color.YELLOW);
         
         tituloFinal.setFont(new Font("Arial", Font.BOLD, 100));
-        tituloFinal.setForeground(Color.WHITE);
+        tituloFinal.setForeground(Color.BLACK);
         pontuacaoFinal.setFont(new Font("Arial", Font.BOLD, 50));
-        pontuacaoFinal.setForeground(Color.WHITE);
+        pontuacaoFinal.setForeground(Color.BLACK);
         botaoProximo.setFont(new Font("Arial", Font.BOLD, 20));
         botaoProximo.setVerticalAlignment(SwingConstants.CENTER);
         botaoProximo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
@@ -81,18 +75,7 @@ public class InterfaceErro extends JFrame{
         add(painelFinalSul, BorderLayout.SOUTH);
         add(painelFinalNorte, BorderLayout.NORTH);
 
-        //Botao do proximo, apenas fazer a logica
-        ActionListener listener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(e.getSource().equals(botaoProximo)){
-                   
-                }
-            }
-        };
-        
-        botaoProximo.addActionListener(listener);
-        
+
         setVisible(true);
     }
     

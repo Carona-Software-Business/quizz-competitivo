@@ -1,5 +1,8 @@
 package domingos.jv.cliente;
 
+import domingos.jv.cliente.logica.Jogador;
+import domingos.jv.cliente.logica.Pergunta;
+import domingos.jv.cliente.logica.GameController;
 import java.util.Scanner;
 
 public class Main {
