@@ -43,6 +43,10 @@ public class GameController {
         quantidadePerguntas = 0;
     }
     
+    public int getQuantidadesPerguntas() {
+        return quantidadePerguntas;
+    }
+    
     public void reiniciarJogo(String nome) {
         // Reiniciar as perguntas
         // Recriar o jogador
@@ -61,9 +65,6 @@ public class GameController {
     }
     
     public Boolean verificarResposta(int res, int tempo) {
-        // RETIRAR APENAS TESTE
-        res--;
-        
         player.somarTempo(tempo);
         
         // Verificar a resposta, define dificuldade.
@@ -125,6 +126,10 @@ public class GameController {
             System.out.println("Erro ao carregar o arquivo json:\n" + ex);
             JOptionPane.showMessageDialog(null, "Erro ao carregar o arquivo json!!!", "Fatal Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+    public int getAcertos() {
+        return player.getAcertos();
     }
     
     public Jogador enviarResultado() {

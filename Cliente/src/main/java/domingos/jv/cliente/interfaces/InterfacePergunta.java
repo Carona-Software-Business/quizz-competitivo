@@ -136,9 +136,9 @@ public class InterfacePergunta extends JFrame {
                 System.out.println("Certo: " + pergunta.getCorreta());
                 
                 if(gameController.verificarResposta(res, tempo))
-                    new InterfaceAcerto();
+                    new InterfaceAcerto(gameController, gameController.getAcertos());
                 else 
-                    new InterfaceErro();
+                    new InterfaceErro(gameController, gameController.getAcertos());
             }
         };
         

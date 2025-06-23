@@ -1,4 +1,5 @@
 package domingos.jv.cliente.interfaces;
+import domingos.jv.cliente.logica.GameController;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,7 +16,7 @@ public class InterfaceErro extends JFrame{
     JPanel painelFinalSul;
     JButton botaoProximo;
     
-    public InterfaceErro(){
+    public InterfaceErro(GameController gameController, int acertos){
         
         setLayout(new BorderLayout());
         
@@ -37,7 +38,7 @@ public class InterfaceErro extends JFrame{
         }
         
         tituloFinal = new JLabel("ERROU!");
-        pontuacaoFinal = new JLabel("Sua pontuação atual é: ");
+        pontuacaoFinal = new JLabel("Seus acertos: " + acertos + "/9");
         painelFinalCentro = new JPanel(new GridLayout(2, 0));
         painelFinalEsquerda = new JPanel(new FlowLayout());
         painelFinalDireita = new JPanel(new GridBagLayout());
@@ -85,9 +86,10 @@ public class InterfaceErro extends JFrame{
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(e.getSource().equals(botaoProximo)){
-                   
-                }
+                if(gameController.getQuantidadesPerguntas() < 9)
+                    new InterfacePergunta(gameController, gameController.escolherPergunta());
+                else 
+                    new InterfaceFinal();
             }
         };
         
