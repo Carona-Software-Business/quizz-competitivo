@@ -75,15 +75,19 @@ import domingos.jv.cliente.logica.GameController;
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     String nome = campoNome.getText().trim();
-                    if (!nome.isEmpty()) {
+                    if (!nome.isEmpty() && nome.length() <= 20) {
                         GameController gameController = new GameController(nome);
                         
                         new InterfacePergunta(gameController, gameController.escolherPergunta());
                         dispose();
                         setVisible(false);
                         // igor, aqui tem que colocar a instancia pra chamar a classe pergunta.
-                    } else {
-                        JOptionPane.showMessageDialog(WindowMain.this, "Por favor, digite seu nome.");
+                    } else if(nome.isEmpty()) {
+                        JOptionPane.showMessageDialog(WindowMain.this, 
+                                "Por favor, digite seu nome.");
+                    } else if(nome.length() > 20) {
+                        JOptionPane.showMessageDialog(WindowMain.this, 
+                                "Por favor, digite um nome com menos de 20 caracteres.");
                     }
                 }
             });
