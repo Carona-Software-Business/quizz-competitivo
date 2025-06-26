@@ -41,7 +41,7 @@ public class InterfaceAcerto extends JFrame{
         painelFinalDireita = new JPanel(new GridBagLayout());
         painelFinalNorte = new JPanel(new FlowLayout());
         painelFinalSul = new JPanel(new FlowLayout());
-        botaoProximo = new JButton("PRÓXIMA PERGUNTA");
+        botaoProximo = new JButton("PRÓXIMO");
         perguntasRestantes = new JLabel("Perguntas restantes: " + 
                 (9 - gameController.getQuantidadesPerguntas()));
         

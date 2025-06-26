@@ -143,7 +143,7 @@ public class GameController {
     }
     
     private void definirDificuldade() {
-        System.out.println("QTD P: " + quantidadePerguntas);
+        //System.out.println("QTD P: " + quantidadePerguntas);
         
         if(quantidadePerguntas == 3) {
             dificuldadeAtual = "medio";
