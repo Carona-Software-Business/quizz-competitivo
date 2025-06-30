@@ -1,6 +1,10 @@
-C:\Users\João Vitor\Desktop\-\Faculdade\Praticas\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\Acerto.java
-C:\Users\João Vitor\Desktop\-\Faculdade\Praticas\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\Erro.java
-C:\Users\João Vitor\Desktop\-\Faculdade\Praticas\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\Final.java
-C:\Users\João Vitor\Desktop\-\Faculdade\Praticas\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\Inicio.java
-C:\Users\João Vitor\Desktop\-\Faculdade\Praticas\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\Pergunta.java
-C:\Users\João Vitor\Desktop\-\Faculdade\Praticas\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\Principal.java
+C:\Users\The Jarbas\OneDrive\Documentos\GitHub\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\interfaces\InterfaceAcerto.java
+C:\Users\The Jarbas\OneDrive\Documentos\GitHub\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\interfaces\InterfaceErro.java
+C:\Users\The Jarbas\OneDrive\Documentos\GitHub\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\interfaces\InterfaceFinal.java
+C:\Users\The Jarbas\OneDrive\Documentos\GitHub\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\interfaces\InterfacePergunta.java
+C:\Users\The Jarbas\OneDrive\Documentos\GitHub\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\interfaces\WindowMain.java
+C:\Users\The Jarbas\OneDrive\Documentos\GitHub\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\logica\GameController.java
+C:\Users\The Jarbas\OneDrive\Documentos\GitHub\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\logica\Jogador.java
+C:\Users\The Jarbas\OneDrive\Documentos\GitHub\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\logica\Pergunta.java
+C:\Users\The Jarbas\OneDrive\Documentos\GitHub\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\Main.java
+C:\Users\The Jarbas\OneDrive\Documentos\GitHub\quizz-competitivo\Cliente\src\main\java\domingos\jv\cliente\Principal.java
