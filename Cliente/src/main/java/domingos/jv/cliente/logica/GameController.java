@@ -2,8 +2,11 @@ package domingos.jv.cliente.logica;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -132,8 +135,19 @@ public class GameController {
         return player.getAcertos();
     }
     
-    public Jogador enviarResultado() {
-        return player;
+    public Jogador enviarResultado(BufferedReader leitor, PrintWriter escritor) {
+        try {
+            escritor.println(player.getNome());
+            escritor.println(player.getPontuacaoTotal());
+
+            player.setPosicao(leitor.readLine());
+            
+        } catch(IOException ex) {
+            JOptionPane.showMessageDialog(null, "Não foi possível se comunicar com o servidor", 
+                    "Erro de Comunicação", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            return player;
+        }
     }
     
     private void filtrarPerguntas() {
