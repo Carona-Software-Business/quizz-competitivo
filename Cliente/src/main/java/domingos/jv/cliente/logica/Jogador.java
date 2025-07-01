@@ -48,7 +48,8 @@ public class Jogador {
     }
     
     public String getPosicao() {
-        return "Sua colocação foi: " + posicao + "° lugar!";
+        //return "Sua colocação foi: " + posicao + "° lugar!";
+        return posicao;
     }
 
     @Override

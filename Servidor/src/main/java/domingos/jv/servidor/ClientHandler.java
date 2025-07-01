@@ -14,12 +14,16 @@ public class ClientHandler extends Thread {
     private Socket cliente;
     private BufferedReader leitor;
     private PrintWriter escritor;
+    
+    private boolean ligado;
 
     public ClientHandler(Socket cliente) {
         try {
             this.cliente = cliente;
             leitor = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
             escritor = new PrintWriter(cliente.getOutputStream(), true);
+            
+            ligado = true;
             
         } catch(IOException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao conectar o cliente", 
@@ -31,19 +35,21 @@ public class ClientHandler extends Thread {
 
     @Override
     public void run() {
-        String posicao = receberResultado();
+        while(ligado) {
+            String posicao = receberResultado();
         
-        enviarPosicao(posicao);
+            enviarPosicao(posicao);
+        }
     }
     
     private synchronized String receberResultado() {
         try {
             String nome = leitor.readLine();
-            int pontos = leitor.read();
+            int pontos = Integer.parseInt(leitor.readLine());
             
             // Ranking
             
-            return "Primeiro Lugar";
+            return "Jogador " + nome + " com " + pontos + " pontos";
             
         } catch(IOException ex) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro ao ler a mensagem do cliente", 

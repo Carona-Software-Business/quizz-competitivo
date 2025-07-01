@@ -2,6 +2,7 @@ package domingos.jv.cliente.logica;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import domingos.jv.cliente.Principal;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -135,16 +136,17 @@ public class GameController {
         return player.getAcertos();
     }
     
-    public Jogador enviarResultado(BufferedReader leitor, PrintWriter escritor) {
+    public Jogador enviarResultado() {
         try {
-            escritor.println(player.getNome());
-            escritor.println(player.getPontuacaoTotal());
+            Principal.escritor.println(player.getNome());
+            Principal.escritor.println(player.getPontuacaoTotal());
 
-            player.setPosicao(leitor.readLine());
+            player.setPosicao(Principal.leitor.readLine());
             
         } catch(IOException ex) {
             JOptionPane.showMessageDialog(null, "Não foi possível se comunicar com o servidor", 
                     "Erro de Comunicação", JOptionPane.ERROR_MESSAGE);
+            System.out.println(ex);
         } finally {
             return player;
         }

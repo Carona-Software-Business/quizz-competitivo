@@ -1,5 +1,4 @@
 package domingos.jv.cliente.interfaces;
-import domingos.jv.cliente.Principal;
 import domingos.jv.cliente.logica.GameController;
 import domingos.jv.cliente.logica.Jogador;
 import javax.swing.*;
@@ -24,10 +23,11 @@ public class InterfaceFinal extends JFrame{
     
     public InterfaceFinal(GameController gameController){
         
-        player = gameController.enviarResultado(Principal.leitor, Principal.escritor);
+        player = gameController.enviarResultado();
         
+        /*
         JOptionPane.showMessageDialog(null, player.getPosicao(), "Posicao", 
-                JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.INFORMATION_MESSAGE); */
         
         setLayout(new BorderLayout());
         

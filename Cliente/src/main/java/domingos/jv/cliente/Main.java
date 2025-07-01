@@ -36,8 +36,8 @@ public class Main {
             //System.out.println("Continuar? digite qualquer coisa: ");
             //leitor.next();
         }
-        System.out.println("Fim de jogo!");
-        Jogador palyer = gameController.enviarResultado();
-        System.out.println(palyer);
+        //System.out.println("Fim de jogo!");
+        //Jogador palyer = gameController.enviarResultado();
+        //System.out.println(palyer);
     }
 }

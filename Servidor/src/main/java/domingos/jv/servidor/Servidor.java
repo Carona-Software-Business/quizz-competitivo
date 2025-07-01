@@ -16,12 +16,14 @@ public class Servidor {
 
     public static void main(String[] args) {
         
+        // Dependencies -> add Dependencie
+        
         try(ServerSocket servidor = new ServerSocket(PORTA)) {
             
             JOptionPane.showMessageDialog(null, "Esperando Conexão...", 
                     "Servidor Aberto", JOptionPane.INFORMATION_MESSAGE);
             
-            for(int i = 0; i < 3; i++) {
+            for(int i = 0; i < 1; i++) {
                 Socket cliente = servidor.accept();
                 clientes.add(cliente);
                 new ClientHandler(cliente).start();
@@ -40,6 +42,8 @@ public class Servidor {
                     "Fatal Error", JOptionPane.ERROR_MESSAGE);
             System.out.println(ex);
         }
+        
+        
         
         
     }
