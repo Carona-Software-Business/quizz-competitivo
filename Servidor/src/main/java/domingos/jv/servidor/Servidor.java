@@ -18,23 +18,29 @@ public class Servidor {
         
         // Dependencies -> add Dependencie
         
-        try(ServerSocket servidor = new ServerSocket(PORTA)) {
-            
+        try {
+            ServerSocket servidor = new ServerSocket(PORTA);
             JOptionPane.showMessageDialog(null, "Esperando Conexão...", 
                     "Servidor Aberto", JOptionPane.INFORMATION_MESSAGE);
             
-            for(int i = 0; i < 1; i++) {
-                Socket cliente = servidor.accept();
-                clientes.add(cliente);
-                new ClientHandler(cliente).start();
-                JOptionPane.showMessageDialog(null, "O " + (i+1) + " Cliente se conectou", 
-                    "Cliente Conectado", JOptionPane.INFORMATION_MESSAGE);
-            }
-            
-            JOptionPane.showMessageDialog(null, "Todos os cliente se conectaram", 
-                    "Sucesso na conexão", JOptionPane.INFORMATION_MESSAGE);
-            
-            
+            //Thread teste = new Thread(task)
+            Thread conectar = new Thread(() -> {
+                while(true) {
+                    try {
+                        Socket cliente = servidor.accept();
+                        clientes.add(cliente);
+                        new ClientHandler(cliente).start();
+                        JOptionPane.showMessageDialog(null, "Um cliente se conectou", 
+                            "Cliente Conectado", JOptionPane.INFORMATION_MESSAGE);
+
+                    } catch(IOException ex) {
+                        JOptionPane.showMessageDialog(null, "Erro na conexão do cliente", 
+                                "Erro de Conexão", JOptionPane.ERROR_MESSAGE);
+                        System.out.println(ex);
+                    }
+                }
+            });
+            conectar.start();
             
             
         } catch(IOException ex) {
@@ -42,9 +48,5 @@ public class Servidor {
                     "Fatal Error", JOptionPane.ERROR_MESSAGE);
             System.out.println(ex);
         }
-        
-        
-        
-        
     }
 }
