@@ -49,8 +49,11 @@ public class Servidor {
             System.out.println(ex);
         }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 }
 =======
+=======
+>>>>>>> Stashed changes
     }
     
     public static void desconectarClientes() throws IOException {
@@ -58,5 +61,8 @@ public class Servidor {
             cliente.close();
         }
     }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
