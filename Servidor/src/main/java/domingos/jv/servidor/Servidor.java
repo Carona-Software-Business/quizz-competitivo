@@ -17,6 +17,9 @@ public class Servidor {
         
         // Dependencies -> add Dependencie
         
+        // Puxando Rank
+        
+        
         try {
             ServerSocket servidor = new ServerSocket(PORTA);
             JOptionPane.showMessageDialog(null, "Esperando Conexão...", 
