@@ -18,6 +18,7 @@ public class InterfaceFinal extends JFrame{
     JButton botaoProximo;
     JLabel tempoFinal;
     JLabel qtdAcertos;
+    JLabel posicaoRanking;
     
     Jogador player;
     
@@ -48,7 +49,7 @@ public class InterfaceFinal extends JFrame{
         pontuacaoFinal = new JLabel("Sua pontuação final é: " + 
                 player.getPontuacaoTotal() + " pontos");
         tempoFinal = new JLabel("Tempo total: " + player.getTempoTotal() + " segundos");
-        painelFinalCentro = new JPanel(new GridLayout(4, 0));
+        painelFinalCentro = new JPanel(new GridLayout(5, 0));
         painelFinalEsquerda = new JPanel(new FlowLayout());
         painelFinalDireita = new JPanel(new GridBagLayout());
         painelFinalNorte = new JPanel(new FlowLayout());
@@ -56,7 +57,7 @@ public class InterfaceFinal extends JFrame{
         botaoProximo = new JButton("PRÓXIMO JOGADOR");
         qtdAcertos = new JLabel("Quantidade de acertos: " + 
                 gameController.getAcertos() + " questões");
-        
+        posicaoRanking = new JLabel("Posição no ranking: ");
         botaoProximo.setPreferredSize(new Dimension(250, 100));
         botaoProximo.setBackground(Color.WHITE);
         botaoProximo.setForeground(Color.BLACK);
@@ -81,6 +82,8 @@ public class InterfaceFinal extends JFrame{
         tempoFinal.setForeground(Color.BLACK);
         qtdAcertos.setFont(new Font("Arial", Font.BOLD, 35));
         qtdAcertos.setForeground(Color.BLACK);
+        posicaoRanking.setFont(new Font("Arial", Font.BOLD, 35));
+        posicaoRanking.setForeground(Color.BLACK);
         
         painelFinalEsquerda.setPreferredSize(new Dimension(300, 0));
         painelFinalDireita.setPreferredSize(new Dimension(300, 0));
@@ -91,6 +94,7 @@ public class InterfaceFinal extends JFrame{
         painelFinalCentro.add(pontuacaoFinal);
         painelFinalCentro.add(tempoFinal);
         painelFinalCentro.add(qtdAcertos);
+        painelFinalCentro.add(posicaoRanking);
         painelFinalDireita.add(botaoProximo, gbc);
         
         add(painelFinalCentro, BorderLayout.CENTER);
