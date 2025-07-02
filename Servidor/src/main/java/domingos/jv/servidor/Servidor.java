@@ -48,5 +48,15 @@ public class Servidor {
                     "Fatal Error", JOptionPane.ERROR_MESSAGE);
             System.out.println(ex);
         }
+<<<<<<< Updated upstream
 }
+=======
+    }
+    
+    public static void desconectarClientes() throws IOException {
+        for (Socket cliente : clientes) {
+            cliente.close();
+        }
+    }
+>>>>>>> Stashed changes
 }

@@ -39,6 +39,8 @@ public class ClientHandler extends Thread {
             String posicao = receberResultado();
         
             enviarPosicao(posicao);
+             
+            if(posicao == null) break;
         }
     }
     
@@ -55,20 +57,25 @@ public class ClientHandler extends Thread {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro ao ler a mensagem do cliente", 
                     "Erro de Leitura", JOptionPane.ERROR_MESSAGE);
             System.out.println(ex);
+            desconectarCliente();
         }
         
-        return "";
+        return null;
     }
     
     private synchronized void enviarPosicao(String posicao) {
         escritor.println(posicao);
     }
     
-    public void desconectar() {
+    public void desconectarCliente() {
         try {
             cliente.close();
+            JOptionPane.showMessageDialog(null, "Cliente desconectado", 
+                    "Sucesso na desconexão", JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException ex) {
-            Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao desconectar cliente", 
+                    "Erro de Desconexão", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
