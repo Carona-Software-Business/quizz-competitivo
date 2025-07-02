@@ -1,5 +1,5 @@
 
-package domingos.jv.servidor;
+package Interfaces;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

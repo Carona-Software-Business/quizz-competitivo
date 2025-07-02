@@ -94,8 +94,4 @@ public class WindowControle extends JFrame {
         add(painelControle, BorderLayout.CENTER);
         setVisible(true);
     }
-
-    public static void main(String[] args) {
-        new WindowControle();
-    }
 }

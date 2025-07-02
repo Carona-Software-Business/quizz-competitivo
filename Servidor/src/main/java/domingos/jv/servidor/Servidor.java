@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashSet;
-import java.util.Scanner;
 import java.util.Set;
 import javax.swing.JOptionPane;
 
@@ -48,15 +47,6 @@ public class Servidor {
                     "Fatal Error", JOptionPane.ERROR_MESSAGE);
             System.out.println(ex);
         }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-}
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     }
     
     public static void desconectarClientes() throws IOException {
@@ -64,11 +54,4 @@ public class Servidor {
             cliente.close();
         }
     }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 }
