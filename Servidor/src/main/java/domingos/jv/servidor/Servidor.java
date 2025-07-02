@@ -48,5 +48,5 @@ public class Servidor {
                     "Fatal Error", JOptionPane.ERROR_MESSAGE);
             System.out.println(ex);
         }
-    }
+}
 }

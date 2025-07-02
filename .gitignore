@@ -1,3 +1,4 @@
 *.class
 /Cliente/target/
 *.lst
+/Servidor/target/
