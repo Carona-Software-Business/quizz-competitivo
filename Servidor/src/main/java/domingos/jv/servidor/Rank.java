@@ -3,6 +3,8 @@ package domingos.jv.servidor;
 import com.google.gson.Gson;
 import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
+import java.util.List;
+import java.util.Comparator;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -16,8 +18,8 @@ import java.util.stream.Stream;
 import javax.swing.JOptionPane;
 
 public class Rank {
-    private Map<String, Integer> rank;
-    private Stream<Map.Entry<String, Integer>> rankOrdenado;
+    private Map<String, EstatisticaJogador> rank;
+    private List<Map.Entry<String, EstatisticaJogador>> rankOrdenado;
     
     private File rankFile;
     
@@ -26,27 +28,36 @@ public class Rank {
     public Rank() {
         gson = new Gson();
         
-        rank = null;
         rankOrdenado = null;
         
         carregarArquivo();
     }
-
-    public Map<String, Integer> getRank() {
-        return rank;
-    }
-
-    public Stream<Map.Entry<String, Integer>> getRankOrdenado() {
-        return rankOrdenado;
-    }
     
-    public void adicionarRank(String nome, int pontos) {
-        rank.putIfAbsent(nome, pontos);
+    public void adicionarRank(String nome, int pontos, int tempo) {
+        rank.putIfAbsent(nome, new EstatisticaJogador(pontos, tempo));
         ordenarRank();
     }
     
     public void ordenarRank() {
-        rankOrdenado = rank.entrySet().stream().sorted(Map.Entry.<String, Integer>comparingByValue().reversed());
+        //rankOrdenado = rank.entrySet().stream().sorted(Map.Entry.<String, Integer>comparingByValue().reversed());
+        
+        rankOrdenado = rank.entrySet()
+                        .stream()
+                        .sorted(
+                           Comparator.comparingInt(
+                               (Map.Entry<String, EstatisticaJogador> e) -> e.getValue().getPontos()
+                           ).reversed().thenComparing(e -> e.getValue().getTempo())
+                        ).toList();
+    }
+    
+    public void printarRank() {
+        rank.entrySet().forEach(System.out::println);
+    }
+    
+    public void printarRankOrdenado() {
+        for(var entry : rankOrdenado) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
     }
     
     private void carregarArquivo() {
@@ -54,9 +65,8 @@ public class Rank {
         
         if(rankFile.exists()) {
             System.out.println("Arquivo existe!");
-            try {
-                FileReader reader =  new FileReader(rankFile);
-                Type type = new TypeToken<Map<String, Integer>>() {}.getType();
+            try(FileReader reader =  new FileReader(rankFile)) {
+                Type type = new TypeToken<Map<String, EstatisticaJogador>>() {}.getType();
                 rank = gson.fromJson(reader, type);
                 reader.close();
                 
@@ -64,11 +74,12 @@ public class Rank {
                 System.out.println(ex);
                 JOptionPane.showMessageDialog(null, "Erro ao carregar o arquivo de rank", 
                         "File Error", JOptionPane.ERROR_MESSAGE);
+                rank = new HashMap<>();
             }
             
         } else {
             System.out.println("Arquivo nao existe");
-            rank = new HashMap<String, Integer>();
+            rank = new HashMap<>();
         }
     }
     
