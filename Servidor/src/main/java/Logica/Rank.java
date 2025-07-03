@@ -1,4 +1,4 @@
-package domingos.jv.servidor;
+package Logica;
 
 import com.google.gson.Gson;
 import java.lang.reflect.Type;
@@ -69,6 +69,7 @@ public class Rank {
                 Type type = new TypeToken<Map<String, EstatisticaJogador>>() {}.getType();
                 rank = gson.fromJson(reader, type);
                 reader.close();
+                ordenarRank();
                 
             } catch (IOException ex) {
                 System.out.println(ex);

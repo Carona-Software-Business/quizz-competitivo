@@ -1,4 +1,4 @@
-package domingos.jv.servidor;
+package Logica;
 
 import java.io.BufferedReader;
 import java.io.IOException;

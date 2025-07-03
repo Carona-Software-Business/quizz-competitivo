@@ -1,5 +1,7 @@
 package Interfaces;
 
+import Logica.Rank;
+import domingos.jv.servidor.Servidor;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -22,7 +24,13 @@ public class WindowControle extends JFrame {
     private JButton botaoMostrarRaking;
     private JButton botaoDesligarServidor;
     
-    public WindowControle() {
+    private InterfaceRanking interfaceRank;
+    
+    private Rank rank;
+    
+    public WindowControle(Rank rank) {
+        this.rank = rank;
+        
         setTitle("Controle Servidor");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 400); // tamanho pequeno
@@ -59,35 +67,41 @@ public class WindowControle extends JFrame {
         botaoDesligarServidor.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Listeners
-        botaoFecharRanking.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("RANKING FECHADO!");
-                
-            }
-        });
-
         botaoMostrarRaking.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("RANKING MOSTRADO!");
+                System.out.println("Rank: ");
+                rank.printarRank();
+                
+                System.out.println("\nRank Ordenado: ");
+                rank.printarRankOrdenado();
+                
+                interfaceRank = new InterfaceRanking(WindowControle.this);
                
+            }
+        });
+        
+        botaoFecharRanking.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                interfaceRank.dispose();
+                
             }
         });
 
         botaoDesligarServidor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("DESLIGANDO SERVIDOR!");
-                 
+                Servidor.desconectarClientes();
+                dispose();
             }
         });
 
         painelControle.add(titulo);
         painelControle.add(Box.createRigidArea(new Dimension(0, 40)));
-        painelControle.add(botaoFecharRanking);
-        painelControle.add(Box.createRigidArea(new Dimension(0, 40)));
         painelControle.add(botaoMostrarRaking);
+        painelControle.add(Box.createRigidArea(new Dimension(0, 40)));
+        painelControle.add(botaoFecharRanking);
         painelControle.add(Box.createRigidArea(new Dimension(0, 40)));
         painelControle.add(botaoDesligarServidor);
 

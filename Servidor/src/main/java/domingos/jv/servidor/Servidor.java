@@ -1,10 +1,13 @@
 package domingos.jv.servidor;
 
+import Logica.ClientHandler;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Servidor {
@@ -52,9 +55,16 @@ public class Servidor {
         }
     }
     
-    public static void desconectarClientes() throws IOException {
+    public static void desconectarClientes() {
         for (Socket cliente : clientes) {
-            cliente.close();
+            try {
+                cliente.close();
+            } catch (IOException ex) {
+                System.out.println(ex);
+                JOptionPane.showMessageDialog(null, 
+                    "Algum erro ocorreu ao desconectar os clientes", 
+                    "Fatal Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 }

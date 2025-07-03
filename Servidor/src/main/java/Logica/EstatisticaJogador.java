@@ -1,4 +1,4 @@
-package domingos.jv.servidor;
+package Logica;
 
 public class EstatisticaJogador {
     private int pontos;

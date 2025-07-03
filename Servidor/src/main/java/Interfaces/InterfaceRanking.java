@@ -11,7 +11,7 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import javax.swing.*;
 
-public class InterfaceRanking extends JFrame{
+public class InterfaceRanking extends JDialog {
     
     String recebeNome;
     JPanel painelNorte;
@@ -21,23 +21,24 @@ public class InterfaceRanking extends JFrame{
     JLabel titulo;
     
     
-    public InterfaceRanking(){
+    public InterfaceRanking(JFrame pai){
         
-        setTitle("Ranking - QUIZ");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        super(pai, "Ranking - QUIZ", false);
+        
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-            int largura = screenSize.width;
-            int altura = screenSize.height;
+        int largura = screenSize.width;
+        int altura = screenSize.height;
 
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            GraphicsDevice gd = ge.getDefaultScreenDevice();
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gd = ge.getDefaultScreenDevice();
 
-            if (gd.isFullScreenSupported()) {
-                setUndecorated(true);
-                gd.setFullScreenWindow(this); 
-            } else {
-                setExtendedState(JFrame.MAXIMIZED_BOTH); 
-            }
+        if (gd.isFullScreenSupported()) {
+            setUndecorated(true);
+            gd.setFullScreenWindow(this); 
+        } else {
+            //setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        }
         
         setLayout(new BorderLayout());
         
