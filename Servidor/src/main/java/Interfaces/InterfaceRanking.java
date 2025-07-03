@@ -1,91 +1,58 @@
-
 package Interfaces;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.Toolkit;
-import javax.swing.*;
+import java.awt.GridLayout;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class InterfaceRanking extends JDialog {
+    private JPanel painelNorte;
+    private JPanel painelCentro;
+    private JPanel painelSul;
     
-    String recebeNome;
-    JPanel painelNorte;
-    JPanel painelOeste;
-    JPanel painelLeste;
-    JPanel painelSul;
-    JLabel titulo;
-    
-    
-    public InterfaceRanking(JFrame pai){
-        
-        super(pai, "Ranking - QUIZ", false);
-        
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int largura = screenSize.width;
-        int altura = screenSize.height;
+    private JLabel labelTitulo;
+    private JLabel labelRodape;
+    private JLabel labelNomes;
 
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        GraphicsDevice gd = ge.getDefaultScreenDevice();
-
-        if (gd.isFullScreenSupported()) {
-            setUndecorated(true);
-            gd.setFullScreenWindow(this); 
-        } else {
-            //setExtendedState(JFrame.MAXIMIZED_BOTH); 
-        }
+    public InterfaceRanking(JFrame pai) {
+        super(pai, "Ranking", false);
         
         setLayout(new BorderLayout());
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setBackground(Color.YELLOW);
+        setSize(1000, 800);
         
         painelNorte = new JPanel();
-        painelOeste = new JPanel();
-        painelLeste = new JPanel();
-        painelSul = new JPanel();
-        
-        titulo = new JLabel("RANKING");
-        titulo.setForeground(Color.WHITE);
-        titulo.setFont(new Font("Times New Roman", Font.BOLD, 50));
-        painelNorte.add(titulo);
-        
-        painelNorte.setPreferredSize(new Dimension(50, 100));
-        painelOeste.setPreferredSize(new Dimension(400, 50));
-        painelLeste.setPreferredSize(new Dimension(400, 50));
-        painelSul.setPreferredSize(new Dimension(50, 100));
-        
+        painelNorte.setBackground(Color.YELLOW);
         add(painelNorte, BorderLayout.NORTH);
-        add(painelOeste, BorderLayout.WEST);
-        add(painelLeste, BorderLayout.EAST);
+        
+        labelTitulo = new JLabel("RANKING");
+        labelTitulo.setFont(new Font("SansSerif", Font.BOLD, 48));
+        painelNorte.add(labelTitulo);
+        
+        // No painel central virá o estilo do rank
+        painelCentro = new JPanel();
+        painelCentro.setBackground(Color.red);
+        add(painelCentro, BorderLayout.CENTER);
+        
+        
+        painelSul = new JPanel(new GridLayout(1, 2));
+        painelSul.setBackground(Color.YELLOW);
         add(painelSul, BorderLayout.SOUTH);
         
-        painelSul.setBackground(Color.BLACK);
-        painelNorte.setBackground(Color.BLACK);
-        painelOeste.setBackground(Color.BLACK);
-        painelLeste.setBackground(Color.BLACK);
+        labelRodape = new JLabel("Quizz Competitivo");
+        labelRodape.setFont(new Font("SansSerif", Font.PLAIN, 24));
+        painelSul.add(labelRodape);
         
-        DefaultListModel<String> modeloLista = new DefaultListModel();
-        //exemplo:
-        String nomesIniciais = ("1. Igor, 32 pontos");
-        
-        for(int i = 0; i < 100; i++){
-            modeloLista.addElement(nomesIniciais);
-        }
-        
-        JList<String> listaRanking = new JList<>(modeloLista);
-        JScrollPane deslizadorLista = new JScrollPane(listaRanking);
-        
-        listaRanking.setFont(new Font("Arial", Font.BOLD, 30));
-        
-        add(deslizadorLista, BorderLayout.CENTER);
+        labelNomes = new JLabel("Guilherme - Igor - João - Kaun");
+        labelNomes.setFont(new Font("SansSerif", Font.PLAIN, 24));
+        painelSul.add(labelNomes);
         
         setVisible(true);
-        
     }
-    
-    
     
 }
