@@ -1,5 +1,6 @@
     package domingos.jv.cliente.interfaces;
 
+import domingos.jv.cliente.Principal;
 import domingos.jv.cliente.interfaces.InterfacePergunta;
 import domingos.jv.cliente.logica.GameController;
     import java.awt.*;
@@ -75,7 +76,10 @@ import domingos.jv.cliente.logica.GameController;
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     String nome = campoNome.getText().trim();
-                    if (!nome.isEmpty() && nome.length() <= 20) {
+                    if(!Principal.nomeEhValido(nome)) 
+                        JOptionPane.showMessageDialog(WindowMain.this, 
+                                "Por favor, sem palavras de baixo calão.");
+                    else if (!nome.isEmpty() && nome.length() <= 20) {
                         GameController gameController = new GameController(nome);
                         
                         new InterfacePergunta(gameController, gameController.escolherPergunta());
