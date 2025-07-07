@@ -1,5 +1,6 @@
 package domingos.jv.servidor;
 
+import Interfaces.WindowControle;
 import Logica.ClientHandler;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -46,6 +47,8 @@ public class Servidor {
                 }
             });
             conectar.start();
+            
+            new WindowControle();
             
             
         } catch(IOException ex) {

@@ -28,8 +28,8 @@ public class WindowControle extends JFrame {
     
     private Rank rank;
     
-    public WindowControle(Rank rank) {
-        this.rank = rank;
+    public WindowControle() {
+        this.rank = new Rank();
         
         setTitle("Controle Servidor");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

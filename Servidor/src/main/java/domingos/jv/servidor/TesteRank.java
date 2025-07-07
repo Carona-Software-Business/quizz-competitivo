@@ -7,6 +7,6 @@ public class TesteRank {
     public static void main(String[] args) {
         Rank rank = new Rank();
         
-        new WindowControle(rank);
+        new WindowControle();
     }
 }
