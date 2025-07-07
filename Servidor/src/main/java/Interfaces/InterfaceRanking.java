@@ -73,7 +73,7 @@ public class InterfaceRanking extends JDialog {
             }
             data[i][0] = posicao;
             if(rank != null) {
-                if(i <= rank.size()) {
+                if(i < rank.size()) {
                     data[i][1] = rank.get(i).getKey();
                     data[i][2] = rank.get(i).getValue().getPontos();
                 }
