@@ -88,7 +88,7 @@ public class InterfaceAcerto extends JFrame{
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(gameController.getQuantidadesPerguntas() < 3){
+                if(gameController.getQuantidadesPerguntas() < 9){
                     new InterfacePergunta(gameController, gameController.escolherPergunta());
                     dispose();
                     setVisible(false);
