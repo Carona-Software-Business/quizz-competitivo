@@ -140,6 +140,7 @@ public class GameController {
         try {
             Principal.escritor.println(player.getNome());
             Principal.escritor.println(player.getPontuacaoTotal());
+            Principal.escritor.println(player.getTempoTotal());
 
             player.setPosicao(Principal.leitor.readLine());
             

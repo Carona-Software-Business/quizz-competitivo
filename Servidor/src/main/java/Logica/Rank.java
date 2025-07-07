@@ -37,6 +37,19 @@ public class Rank {
         return rankOrdenado;
     }
     
+    public int pegarPosicao(String nome) {
+        int pos = -1;
+        
+        for(int i = 0; i < rankOrdenado.size(); i++) {
+            if(rankOrdenado.get(i).getKey().equals(nome)) {
+                pos = i + 1;
+                break;
+            }
+        }
+        
+        return pos;
+    }
+    
     public void adicionarRank(String nome, int pontos, int tempo) {
         rank.putIfAbsent(nome, new EstatisticaJogador(pontos, tempo));
         ordenarRank();

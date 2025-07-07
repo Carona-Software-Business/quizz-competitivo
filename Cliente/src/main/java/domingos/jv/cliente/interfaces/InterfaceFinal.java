@@ -26,10 +26,6 @@ public class InterfaceFinal extends JFrame{
         
         player = gameController.enviarResultado();
         
-        /*
-        JOptionPane.showMessageDialog(null, player.getPosicao(), "Posicao", 
-                JOptionPane.INFORMATION_MESSAGE); */
-        
         setLayout(new BorderLayout());
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,7 +53,12 @@ public class InterfaceFinal extends JFrame{
         botaoProximo = new JButton("PRÓXIMO JOGADOR");
         qtdAcertos = new JLabel("Quantidade de acertos: " + 
                 gameController.getAcertos() + " questões");
-        posicaoRanking = new JLabel("Posição no ranking: ");
+        
+        if(!player.getPosicao().isEmpty())
+            posicaoRanking = new JLabel("Posição: " + player.getPosicao());
+        else
+            posicaoRanking = new JLabel();
+        
         botaoProximo.setPreferredSize(new Dimension(250, 100));
         botaoProximo.setBackground(Color.WHITE);
         botaoProximo.setForeground(Color.BLACK);

@@ -2,6 +2,7 @@ package domingos.jv.servidor;
 
 import Interfaces.WindowControle;
 import Logica.ClientHandler;
+import Logica.Rank;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -16,13 +17,15 @@ public class Servidor {
     private static final int PORTA = 1234;
     
     private static Set<Socket> clientes = new HashSet<>();
+    
+    public static Rank rank;
 
     public static void main(String[] args) {
         
         // Dependencies -> add Dependencie
         
         // Puxando Rank
-        
+        rank = new Rank();
         
         try {
             ServerSocket servidor = new ServerSocket(PORTA);

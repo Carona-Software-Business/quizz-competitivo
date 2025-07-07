@@ -24,7 +24,7 @@ public class WindowControle extends JFrame {
     private JButton botaoMostrarRaking;
     private JButton botaoDesligarServidor;
     
-    private InterfaceRanking interfaceRank;
+    public static InterfaceRanking interfaceRank;
     private InterfaceRankingIgor interfaceRankingIgor;
     
     private Rank rank;
@@ -94,6 +94,7 @@ public class WindowControle extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Servidor.desconectarClientes();
+                Servidor.rank.salvarRank();
                 dispose();
             }
         });
@@ -108,9 +109,5 @@ public class WindowControle extends JFrame {
 
         add(painelControle, BorderLayout.CENTER);
         setVisible(true);
-    }
-
-    public InterfaceRanking getInterfaceRank() {
-        return interfaceRank;
     }
 }

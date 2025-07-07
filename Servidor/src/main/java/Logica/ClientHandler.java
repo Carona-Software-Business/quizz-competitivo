@@ -1,5 +1,7 @@
 package Logica;
 
+import Interfaces.WindowControle;
+import domingos.jv.servidor.Servidor;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -48,10 +50,20 @@ public class ClientHandler extends Thread {
         try {
             String nome = leitor.readLine();
             int pontos = Integer.parseInt(leitor.readLine());
+            int tempo = Integer.parseInt(leitor.readLine());
             
             // Ranking
+            Servidor.rank.adicionarRank(nome, pontos, tempo);
             
-            return "Jogador " + nome + " com " + pontos + " pontos";
+            // Tabela
+            WindowControle.interfaceRank.atualizarTabela(Servidor.rank.getRankOrdenado());
+            
+            int pos = Servidor.rank.pegarPosicao(nome);
+            
+            if(pos != -1)
+                return "Você ficou em " + pos + "° lugar."; 
+            else
+                return "";
             
         } catch(IOException ex) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro ao ler a mensagem do cliente", 
