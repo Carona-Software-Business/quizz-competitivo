@@ -106,13 +106,16 @@ public class Rank {
     
     
     public void salvarRank() {
-        try(FileWriter writer = new FileWriter("ranking.json");) {
-            gson.toJson(rank, writer);
-            
-        } catch (IOException ex) {
-            System.out.println(ex);
-            JOptionPane.showMessageDialog(null, "Erro ao salvar o rank", 
-                        "Filer Error", JOptionPane.ERROR_MESSAGE);
+        if(rank != null && !rank.isEmpty()) {
+            System.out.println("Salvando...");
+            try(FileWriter writer = new FileWriter("ranking.json");) {
+                gson.toJson(rank, writer);
+
+            } catch (IOException ex) {
+                System.out.println(ex);
+                JOptionPane.showMessageDialog(null, "Erro ao salvar o rank", 
+                            "Filer Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
     

@@ -93,8 +93,8 @@ public class WindowControle extends JFrame {
         botaoDesligarServidor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Servidor.desconectarClientes();
                 Servidor.rank.salvarRank();
+                Servidor.desligar();
                 dispose();
             }
         });

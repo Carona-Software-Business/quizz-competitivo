@@ -19,6 +19,8 @@ public class Servidor {
     private static Set<Socket> clientes = new HashSet<>();
     
     public static Rank rank;
+    
+    private static Thread conectar;
 
     public static void main(String[] args) {
         
@@ -33,7 +35,7 @@ public class Servidor {
                     "Servidor Aberto", JOptionPane.INFORMATION_MESSAGE);
             
             //Thread teste = new Thread(task)
-            Thread conectar = new Thread(() -> {
+            conectar = new Thread(() -> {
                 while(true) {
                     try {
                         Socket cliente = servidor.accept();
@@ -61,7 +63,7 @@ public class Servidor {
         }
     }
     
-    public static void desconectarClientes() {
+    private static void desconectarClientes() {
         for (Socket cliente : clientes) {
             try {
                 cliente.close();
@@ -72,5 +74,10 @@ public class Servidor {
                     "Fatal Error", JOptionPane.ERROR_MESSAGE);
             }
         }
+    }
+    
+    public static void desligar() {
+        desconectarClientes();
+        conectar.interrupt();
     }
 }
