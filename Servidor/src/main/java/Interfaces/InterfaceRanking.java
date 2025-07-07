@@ -19,9 +19,10 @@ public class InterfaceRanking extends JDialog {
     
     private DefaultTableModel model;
 
-    public InterfaceRanking(JFrame pai, List<Map.Entry<String, EstatisticaJogador>> rank) {
-        super(pai, "Ranking", false);
+    public InterfaceRanking(List<Map.Entry<String, EstatisticaJogador>> rank) {
+        //super(pai, "Ranking", false);
 
+        setTitle("Ranking");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(1000, 800);
         setLocationRelativeTo(null);
