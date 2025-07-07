@@ -25,6 +25,7 @@ public class WindowControle extends JFrame {
     private JButton botaoDesligarServidor;
     
     private InterfaceRanking interfaceRank;
+    private InterfaceRankingIgor interfaceRankingIgor;
     
     private Rank rank;
     
@@ -77,7 +78,7 @@ public class WindowControle extends JFrame {
                 rank.printarRankOrdenado();
                 
                 interfaceRank = new InterfaceRanking(WindowControle.this);
-               
+                //interfaceRankingIgor = new InterfaceRankingIgor(WindowControle.this);
             }
         });
         
