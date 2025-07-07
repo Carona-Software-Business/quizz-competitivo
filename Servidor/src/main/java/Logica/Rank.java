@@ -37,7 +37,8 @@ public class Rank {
         return rankOrdenado;
     }
     
-    public int pegarPosicao(String nome) {
+    public synchronized int pegarPosicao(String nome) {
+        // Sincronizar
         int pos = -1;
         
         for(int i = 0; i < rankOrdenado.size(); i++) {
@@ -50,7 +51,8 @@ public class Rank {
         return pos;
     }
     
-    public void adicionarRank(String nome, int pontos, int tempo) {
+    public synchronized void adicionarRank(String nome, int pontos, int tempo) {
+        // Sincronizar
         rank.putIfAbsent(nome, new EstatisticaJogador(pontos, tempo));
         ordenarRank();
     }

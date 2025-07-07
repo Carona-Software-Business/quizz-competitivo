@@ -57,7 +57,7 @@ public class Principal {
     
     public static boolean nomeEhValido(String nome) {
         for(String palavra : palavrasProibidas) {
-            if(nome.toLowerCase().contains(palavra)) {
+            if(nome.toLowerCase().trim().contains(palavra)) {
                 return false;
             }
         }

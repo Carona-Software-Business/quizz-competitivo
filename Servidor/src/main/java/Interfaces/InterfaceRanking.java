@@ -154,9 +154,13 @@ public class InterfaceRanking extends JDialog {
             max = 10;
         }
         
-        for(int i = 0; i < max; i++) {
-            model.setValueAt(rank.get(i).getKey(), i, 1);
-            model.setValueAt(rank.get(i).getValue().getPontos(), i, 2);
-        }
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                for(int i = 0; i < max; i++) {
+                    model.setValueAt(rank.get(i).getKey(), i, 1);
+                    model.setValueAt(rank.get(i).getValue().getPontos(), i, 2);
+                }
+            }
+        });
     }
 }

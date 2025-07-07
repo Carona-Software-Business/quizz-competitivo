@@ -82,6 +82,7 @@ public class ClientHandler extends Thread {
     public void desconectarCliente() {
         try {
             cliente.close();
+            ligado = false;
             JOptionPane.showMessageDialog(null, "Cliente desconectado", 
                     "Sucesso na desconexão", JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException ex) {
