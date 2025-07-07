@@ -77,7 +77,7 @@ public class WindowControle extends JFrame {
                 System.out.println("\nRank Ordenado: ");
                 rank.printarRankOrdenado();
                 
-                interfaceRank = new InterfaceRanking(WindowControle.this);
+                interfaceRank = new InterfaceRanking(WindowControle.this, rank.getRankOrdenado());
                 //interfaceRankingIgor = new InterfaceRankingIgor(WindowControle.this);
             }
         });
@@ -108,5 +108,9 @@ public class WindowControle extends JFrame {
 
         add(painelControle, BorderLayout.CENTER);
         setVisible(true);
+    }
+
+    public InterfaceRanking getInterfaceRank() {
+        return interfaceRank;
     }
 }

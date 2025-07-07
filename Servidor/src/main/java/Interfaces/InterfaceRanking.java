@@ -1,6 +1,9 @@
 package Interfaces;
 
+import Logica.EstatisticaJogador;
 import java.awt.*;
+import java.util.Map;
+import java.util.List;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.*;
@@ -13,8 +16,10 @@ public class InterfaceRanking extends JDialog {
     private JLabel labelTitulo;
     private JLabel labelRodape;
     private JLabel labelNomes;
+    
+    private DefaultTableModel model;
 
-    public InterfaceRanking(JFrame pai) {
+    public InterfaceRanking(JFrame pai, List<Map.Entry<String, EstatisticaJogador>> rank) {
         super(pai, "Ranking", false);
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -46,15 +51,19 @@ public class InterfaceRanking extends JDialog {
         painelCentro.setBackground(corPrincipal);
         painelCentro.setBorder(new EmptyBorder(10, 100, 10, 100));
         add(painelCentro, BorderLayout.CENTER);
-
+        
+        
         String[] columnNames = {"Posição", "Nome", "Pontos"};
+        /*
         Object[][] nomesEPontos = {
             {"João", "10"}, {"Kauan", "55"}, {"Guilherme", "20"}, {"Lenda", "30"},
-            {"Gabriel", "50"}, {"Augusto", "32"}, {"Jairo", "12"}, {"Jabuti", "300"}
+            {"Gabriel", "50"}, {"Augusto", "32"}, {"Jairo", "12"}, {"Jabuti", "300"},
+            {"Jairo", "12"}, {"Jairo", "12"}
         };
-
-        Object[][] data = new Object[nomesEPontos.length][3];
-        for (int i = 0; i < nomesEPontos.length; i++) {
+        */
+        
+        Object[][] data = new Object[10][3];
+        for (int i = 0; i < 10; i++) {
             String posicao;
             switch (i) {
                 case 0: posicao = "🥇"; break;
@@ -63,11 +72,13 @@ public class InterfaceRanking extends JDialog {
                 default: posicao = String.valueOf(i + 1);
             }
             data[i][0] = posicao;
-            data[i][1] = nomesEPontos[i][0];
-            data[i][2] = nomesEPontos[i][1];
+            if(rank != null) {
+                data[i][1] = rank.get(i).getKey();
+                data[i][2] = rank.get(i).getValue().getPontos();
+            }
         }
 
-        DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+        model = new DefaultTableModel(data, columnNames) {
             public boolean isCellEditable(int row, int col) {
                 return false;
             }
@@ -88,7 +99,7 @@ public class InterfaceRanking extends JDialog {
             }
         };
 
-        tabela.setRowHeight(50);
+        tabela.setRowHeight(52);
         tabela.setFont(new Font("SansSerif", Font.PLAIN, 24));
         tabela.getTableHeader().setFont(new Font("SansSerif", Font.BOLD, 26));
         tabela.setShowVerticalLines(false);
@@ -110,6 +121,7 @@ public class InterfaceRanking extends JDialog {
         JScrollPane scrollPane = new JScrollPane(tabela);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
         painelCentro.add(scrollPane, BorderLayout.CENTER);
+        
 
         painelSul = new JPanel(new GridLayout(1, 2));
         painelSul.setBackground(corRodape);
@@ -129,5 +141,12 @@ public class InterfaceRanking extends JDialog {
 
         setVisible(true);
 
+    }
+    
+    public void atualizarTabela(List<Map.Entry<String, EstatisticaJogador>> rank) {
+        for(int i = 0; i < 10; i++) {
+            model.setValueAt(rank.get(i).getKey(), i, 1);
+            model.setValueAt(rank.get(i).getValue(), i, 2);
+        }
     }
 }

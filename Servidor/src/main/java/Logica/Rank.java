@@ -32,6 +32,10 @@ public class Rank {
         
         carregarArquivo();
     }
+
+    public List<Map.Entry<String, EstatisticaJogador>> getRankOrdenado() {
+        return rankOrdenado;
+    }
     
     public void adicionarRank(String nome, int pontos, int tempo) {
         rank.putIfAbsent(nome, new EstatisticaJogador(pontos, tempo));
@@ -55,9 +59,12 @@ public class Rank {
     }
     
     public void printarRankOrdenado() {
-        for(var entry : rankOrdenado) {
-            System.out.println(entry.getKey() + " -> " + entry.getValue());
-        }
+        if(rankOrdenado != null) {
+                for(var entry : rankOrdenado) {
+                    System.out.println(entry.getKey() + " -> " + entry.getValue());
+            }
+        } else 
+            System.out.println("Vazio");
     }
     
     private void carregarArquivo() {
