@@ -73,8 +73,10 @@ public class InterfaceRanking extends JDialog {
             }
             data[i][0] = posicao;
             if(rank != null) {
-                data[i][1] = rank.get(i).getKey();
-                data[i][2] = rank.get(i).getValue().getPontos();
+                if(i <= rank.size()) {
+                    data[i][1] = rank.get(i).getKey();
+                    data[i][2] = rank.get(i).getValue().getPontos();
+                }
             }
         }
 
@@ -144,9 +146,17 @@ public class InterfaceRanking extends JDialog {
     }
     
     public void atualizarTabela(List<Map.Entry<String, EstatisticaJogador>> rank) {
-        for(int i = 0; i < 10; i++) {
+        int max;
+        
+        if(rank.size() <= 10)
+            max = rank.size();
+        else {
+            max = 10;
+        }
+        
+        for(int i = 0; i < max; i++) {
             model.setValueAt(rank.get(i).getKey(), i, 1);
-            model.setValueAt(rank.get(i).getValue(), i, 2);
+            model.setValueAt(rank.get(i).getValue().getPontos(), i, 2);
         }
     }
 }
