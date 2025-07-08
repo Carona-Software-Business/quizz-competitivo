@@ -57,7 +57,7 @@ public class InterfaceFinal extends JFrame{
         if(player.getPosicao() != -1 && player.getPosicao() > 10)
             posicaoRanking = new JLabel("Posição: Você ficou em " + player.getPosicao() + "° lugar!");
         else
-            posicaoRanking = new JLabel();
+            posicaoRanking = new JLabel("Você entrou no TOP 10, veja o ranking!");
         
         botaoProximo.setPreferredSize(new Dimension(250, 100));
         botaoProximo.setBackground(Color.WHITE);
