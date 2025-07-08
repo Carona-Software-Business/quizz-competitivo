@@ -19,12 +19,12 @@ public class Principal {
     
     private static List<String> palavrasProibidas;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {    
         
         carregarPalavrasProibidas();
         
         try {
-            socket = new Socket("192.168.243.1", 1234);
+            socket = new Socket("192.168.5.247", 1234);
             JOptionPane.showMessageDialog(null, "Conectado no Servidor", 
                     "Sucesso na Conexão", JOptionPane.INFORMATION_MESSAGE);
             
