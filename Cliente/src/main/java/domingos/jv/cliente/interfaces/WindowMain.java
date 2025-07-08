@@ -59,7 +59,7 @@ import domingos.jv.cliente.logica.GameController;
             campoNome.setAlignmentX(Component.CENTER_ALIGNMENT);
             
             erroNome = new JLabel();
-            erroNome.setFont(new Font("Arial", Font.BOLD, 12));
+            erroNome.setFont(new Font("Arial", Font.BOLD, 16));
             erroNome.setAlignmentX(Component.CENTER_ALIGNMENT);
 
             botaoIniciar = new JButton("INICIAR");
@@ -82,21 +82,16 @@ import domingos.jv.cliente.logica.GameController;
                 public void actionPerformed(ActionEvent e) {
                     String nome = campoNome.getText().trim();
                     if(!Principal.nomeEhValido(nome)) 
-                        JOptionPane.showMessageDialog(WindowMain.this, 
-                                "Por favor, sem palavras de baixo calão.");
+                        erroNome.setText("Por favor, sem palavras de baixo calão.");
                     else if (!nome.isEmpty() && nome.length() <= 20) {
                         GameController gameController = new GameController(nome);
-                        
                         new InterfacePergunta(gameController, gameController.escolherPergunta());
                         dispose();
                         setVisible(false);
-                        // igor, aqui tem que colocar a instancia pra chamar a classe pergunta.
                     } else if(nome.isEmpty()) {
-                        JOptionPane.showMessageDialog(WindowMain.this, 
-                                "Por favor, digite seu nome.");
+                        erroNome.setText("Por favor, digite seu nome.");
                     } else if(nome.length() > 20) {
-                        JOptionPane.showMessageDialog(WindowMain.this, 
-                                "Por favor, digite um nome com menos de 20 caracteres.");
+                        erroNome.setText("Por favor, digite um nome com menos de 20 caracteres.");
                     }
                 }
             });
