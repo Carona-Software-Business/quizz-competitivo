@@ -25,7 +25,6 @@ public class WindowControle extends JFrame {
     private JButton botaoDesligarServidor;
     
     public static InterfaceRanking interfaceRank;
-    private InterfaceRankingIgor interfaceRankingIgor;
     
     private Rank rank;
     

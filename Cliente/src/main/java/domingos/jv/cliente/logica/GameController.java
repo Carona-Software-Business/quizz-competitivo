@@ -51,12 +51,6 @@ public class GameController {
         return quantidadePerguntas;
     }
     
-    public void reiniciarJogo(String nome) {
-        // Reiniciar as perguntas
-        // Recriar o jogador
-        // Reiniciar a dificuldade
-    }
-    
     public Pergunta escolherPergunta() {
         // Escolher a pergunta aleatóriamente dependendo da dificuldade
         int pos = new Random().nextInt(perguntasAtual.size());
