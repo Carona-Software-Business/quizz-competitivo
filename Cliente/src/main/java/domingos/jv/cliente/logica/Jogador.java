@@ -5,14 +5,14 @@ public class Jogador {
     private int pontuacaoTotal;
     private int acertos;
     private int tempoTotal;
-    private String posicao;
+    private int posicao;
 
     public Jogador(String nome) {
         this.nome = nome;
         this.pontuacaoTotal = 0;
         this.acertos = 0;
         this.tempoTotal = 0;
-        this.posicao = "";
+        this.posicao = 0;
     }
 
     public int getAcertos() {
@@ -43,11 +43,11 @@ public class Jogador {
         this.tempoTotal += tempo;
     }
 
-    public void setPosicao(String posicao) {
+    public void setPosicao(int posicao) {
         this.posicao = posicao;
     }
     
-    public String getPosicao() {
+    public int getPosicao() {
         //return "Sua colocação foi: " + posicao + "° lugar!";
         return posicao;
     }

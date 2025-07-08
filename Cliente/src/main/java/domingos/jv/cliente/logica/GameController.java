@@ -142,7 +142,7 @@ public class GameController {
             Principal.escritor.println(player.getPontuacaoTotal());
             Principal.escritor.println(player.getTempoTotal());
 
-            player.setPosicao(Principal.leitor.readLine());
+            player.setPosicao(Integer.parseInt(Principal.leitor.readLine()));
             
         } catch(IOException ex) {
             JOptionPane.showMessageDialog(null, "Não foi possível se comunicar com o servidor", 

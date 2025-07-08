@@ -54,8 +54,8 @@ public class InterfaceFinal extends JFrame{
         qtdAcertos = new JLabel("Quantidade de acertos: " + 
                 gameController.getAcertos() + " questões");
         
-        if(!player.getPosicao().isEmpty())
-            posicaoRanking = new JLabel("Posição: " + player.getPosicao());
+        if(player.getPosicao() != -1)
+            posicaoRanking = new JLabel("Posição: Você ficou em " + player.getPosicao() + "° lugar!");
         else
             posicaoRanking = new JLabel();
         

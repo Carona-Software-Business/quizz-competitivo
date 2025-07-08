@@ -38,15 +38,15 @@ public class ClientHandler extends Thread {
     @Override
     public void run() {
         while(ligado) {
-            String posicao = receberResultado();
+            int posicao = receberResultado();
         
             enviarPosicao(posicao);
              
-            if(posicao == null) break;
+            //if(posicao == null) break;
         }
     }
     
-    private synchronized String receberResultado() {
+    private synchronized int receberResultado() {
         try {
             String nome = leitor.readLine();
             int pontos = Integer.parseInt(leitor.readLine());
@@ -60,10 +60,7 @@ public class ClientHandler extends Thread {
             
             int pos = Servidor.rank.pegarPosicao(nome);
             
-            if(pos != -1)
-                return "Você ficou em " + pos + "° lugar."; 
-            else
-                return "";
+            return pos;
             
         } catch(IOException ex) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro ao ler a mensagem do cliente", 
@@ -72,10 +69,10 @@ public class ClientHandler extends Thread {
             desconectarCliente();
         }
         
-        return null;
+        return -1;
     }
     
-    private synchronized void enviarPosicao(String posicao) {
+    private synchronized void enviarPosicao(int posicao) {
         escritor.println(posicao);
     }
     
