@@ -95,6 +95,7 @@ public class WindowControle extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 Servidor.rank.salvarRank();
                 Servidor.desligar();
+                interfaceRank.dispose();
                 dispose();
             }
         });
