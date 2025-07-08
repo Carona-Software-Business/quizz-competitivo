@@ -15,6 +15,7 @@ import domingos.jv.cliente.logica.GameController;
         private JLabel integrantes;
         private JLabel serie_curso;
         private JLabel colocar_nome;
+        private JLabel erroNome;
 
         public WindowMain() {
 
@@ -56,6 +57,10 @@ import domingos.jv.cliente.logica.GameController;
             campoNome.setMaximumSize(new Dimension(700, 50));
             campoNome.setFont(new Font("SansSerif", Font.PLAIN, 24));
             campoNome.setAlignmentX(Component.CENTER_ALIGNMENT);
+            
+            erroNome = new JLabel();
+            erroNome.setFont(new Font("Arial", Font.BOLD, 12));
+            erroNome.setAlignmentX(Component.CENTER_ALIGNMENT);
 
             botaoIniciar = new JButton("INICIAR");
             botaoIniciar.setBackground(new Color(0, 123, 255));
@@ -102,6 +107,8 @@ import domingos.jv.cliente.logica.GameController;
             painelCentral.add(Box.createRigidArea(new Dimension(0, 40)));
             painelCentral.add(campoNome);
             painelCentral.add(Box.createRigidArea(new Dimension(0, 80)));
+            painelCentral.add(erroNome);
+            painelCentral.add(Box.createRigidArea(new Dimension(0, 10)));
             painelCentral.add(botaoIniciar);
             painelCentral.add(Box.createRigidArea(new Dimension(0, 120)));
             painelCentral.add(serie_curso);
