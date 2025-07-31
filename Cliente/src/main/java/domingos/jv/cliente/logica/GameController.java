@@ -24,6 +24,8 @@ public class GameController {
     private int quantidadePerguntas;
     private String dificuldadeAtual;
     
+    private int consecutivos;
+    
     private Jogador player;
     
     private Timer timer;
@@ -45,6 +47,9 @@ public class GameController {
         
         // Setar zero na quantidade de perguntas
         quantidadePerguntas = 0;
+        
+        // Seta os acertos consecutivos
+        consecutivos = 0;
     }
     
     public int getQuantidadesPerguntas() {
@@ -68,6 +73,8 @@ public class GameController {
         // Verificar a resposta, define dificuldade.
         if(res == perguntaAtual.getCorreta()) {
             player.somarAcerto();
+            consecutivos++;
+            
             calcularPontos(tempo);
             
             // Setar dificuldade, talvez, filtrar
@@ -76,6 +83,7 @@ public class GameController {
             return true;
         }
         
+        consecutivos = 0;
         definirDificuldade();
         return false;
     }
@@ -90,15 +98,21 @@ public class GameController {
         else
             pontosTempo = 0;
         
+        int pontosConsecutivos;
+        if(consecutivos > 1)
+            pontosConsecutivos = consecutivos;
+        else 
+            pontosConsecutivos = 1;
+        
         switch (perguntaAtual.getNivel()) {
             case "facil":
-                player.somarPontos(7 + pontosTempo);
+                player.somarPontos((7 + pontosTempo) * pontosConsecutivos);
                 break;
             case "medio":
-                player.somarPontos(10 + pontosTempo);
+                player.somarPontos((10 + pontosTempo) * pontosConsecutivos);
                 break;
             case "dificil":
-                player.somarPontos(12 + pontosTempo);
+                player.somarPontos((12 + pontosTempo) * pontosConsecutivos);
                 break;
         }
     }
