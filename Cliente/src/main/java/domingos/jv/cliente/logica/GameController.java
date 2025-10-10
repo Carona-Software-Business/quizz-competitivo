@@ -96,7 +96,7 @@ public class GameController {
         else if(tempo <= 6)
             pontosTempo = 5;
         else
-            pontosTempo = 0;
+            pontosTempo = 1;
         
         int pontosConsecutivos;
         if(consecutivos > 1)
